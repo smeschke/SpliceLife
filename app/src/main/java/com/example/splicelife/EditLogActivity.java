@@ -81,7 +81,7 @@ public class EditLogActivity extends AppCompatActivity {
             Intent resultIntent = new Intent();
             resultIntent.putExtra("belt_id", belt.getId());
             setResult(RESULT_OK, resultIntent);
-            finish();
+
         }
     }
     private void copyLastTwoLogs() {
