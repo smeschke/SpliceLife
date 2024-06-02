@@ -3,13 +3,13 @@
 
 
     <string-array name="beltParameters">
-        <item>date:general</item>
         <item>conveyorName:general</item>
         <item>conveyorLocation:general</item>
         <item>completedBy:general</item>
         <item>customerContact:general</item>
         <item>companyName:general</item>
         <item>conveyorReferenceCode:general</item>
+        <item>motorNumber</item>
         <item>projectName:general</item>
         <item>conveyorType:general</item>
         <item>totalBeltLength:beltParameters</item>
@@ -106,7 +106,6 @@
     </string-array>
 
     <string-array name="beltParametersSimple">
-        <item>date:general</item>
         <item>conveyorName:general</item>
         <item>conveyorLocation:general</item>
         <item>companyName:general</item>

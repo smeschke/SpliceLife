@@ -1,20 +1,23 @@
-// KeySelectionActivity.java
 package com.example.splicelife;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.GridLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
+
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,15 +31,19 @@ import java.util.Map;
 
 public class KeySelectionActivity extends AppCompatActivity {
 
-    private TextView tvProgress, tvUserColumnValue, tvDbKey;
+    private TextView tvProgress, tvUserColumnValue;
+    private AutoCompleteTextView autoCompleteDbKey;
     private Button btnSelectKey;
-    private GridLayout gridButtons;
+    private Spinner spinnerGeneral, spinnerBeltParameters, spinnerLogs;
 
     private List<String> columnHeaders;
     private int currentIndex = 0;
     private Map<String, String> columnToKeyMap;
     private Uri fileUri;
     private AppDatabase db;
+    private String lastSelectedItemGeneral = "";
+    private String lastSelectedItemBeltParameters = "";
+    private String lastSelectedItemLogs = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,40 +53,58 @@ public class KeySelectionActivity extends AppCompatActivity {
         // Initialize the database
         db = MainApplication.getDatabase();
 
+        // Initialize UI components
         tvProgress = findViewById(R.id.tvProgress);
         tvUserColumnValue = findViewById(R.id.tvUserColumnValue);
-        tvDbKey = findViewById(R.id.tvDbKey);
+        autoCompleteDbKey = findViewById(R.id.autoCompleteDbKey);
         btnSelectKey = findViewById(R.id.btnSelectKey);
-        gridButtons = findViewById(R.id.gridButtons);
+        spinnerGeneral = findViewById(R.id.spinnerGeneral);
+        spinnerBeltParameters = findViewById(R.id.spinnerBeltParameters);
+        spinnerLogs = findViewById(R.id.spinnerLogs);
+
+        // Extract and categorize belt parameters
+        String[] beltParametersSimple = getResources().getStringArray(R.array.beltParametersSimple);
+        List<String> generalParams = new ArrayList<>();
+        List<String> beltParams = new ArrayList<>();
+        List<String> logParams = new ArrayList<>();
+
+        for (String param : beltParametersSimple) {
+            String[] parts = param.split(":");
+            if (parts.length == 2) {
+                switch (parts[1]) {
+                    case "general":
+                        generalParams.add(parts[0]);
+                        break;
+                    case "beltParameters":
+                        beltParams.add(parts[0]);
+                        break;
+                    case "logs":
+                        logParams.add(parts[0]);
+                        break;
+                }
+            }
+        }
+
+        // Set up spinners with categorized parameters
+        setupSpinner(spinnerGeneral, generalParams, "general");
+        setupSpinner(spinnerBeltParameters, beltParams, "beltParameters");
+        setupSpinner(spinnerLogs, logParams, "logs");
 
         Intent intent = getIntent();
         if (intent != null) {
             columnHeaders = intent.getStringArrayListExtra("columnHeaders");
             fileUri = intent.getParcelableExtra("fileUri");
-
-            if (fileUri == null) {
-                Log.e("KeySelectionActivity", "File URI is null in Intent");
-            } else {
-                Log.d("KeySelectionActivity", "File URI received: " + fileUri.toString());
-            }
-
-            if (columnHeaders != null) {
-                Log.d("KeySelectionActivity", "Column Headers received: " + columnHeaders.toString());
-            } else {
-                Log.e("KeySelectionActivity", "Column Headers are null in Intent");
-            }
-        } else {
-            Log.e("KeySelectionActivity", "Intent is null");
         }
 
         columnToKeyMap = new HashMap<>();
 
-        String[] beltParametersSimple = getResources().getStringArray(R.array.beltParametersSimple);
-        populateButtons(beltParametersSimple);
+        // Populate AutoCompleteTextView with database keys
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, beltParametersSimple);
+        autoCompleteDbKey.setAdapter(adapter);
 
         btnSelectKey.setOnClickListener(v -> {
             if (columnHeaders != null && !columnHeaders.isEmpty()) {
-                columnToKeyMap.put(columnHeaders.get(currentIndex), tvDbKey.getText().toString());
+                columnToKeyMap.put(columnHeaders.get(currentIndex), autoCompleteDbKey.getText().toString());
                 moveToNextColumn();
             }
         });
@@ -92,25 +117,42 @@ public class KeySelectionActivity extends AppCompatActivity {
         }
     }
 
-    private void populateButtons(String[] parameters) {
-        for (String param : parameters) {
-            String[] parts = param.split(":");
-            String buttonText = parts.length > 1 ? parts[0] : param;
+    private void setupSpinner(Spinner spinner, List<String> items, String category) {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
-            Button button = new Button(this);
-            button.setText(buttonText);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = items.get(position);
+                switch (category) {
+                    case "general":
+                        if (!selectedItem.equals(lastSelectedItemGeneral)) {
+                            autoCompleteDbKey.setText(selectedItem);
+                            lastSelectedItemGeneral = selectedItem;
+                        }
+                        break;
+                    case "beltParameters":
+                        if (!selectedItem.equals(lastSelectedItemBeltParameters)) {
+                            autoCompleteDbKey.setText(selectedItem);
+                            lastSelectedItemBeltParameters = selectedItem;
+                        }
+                        break;
+                    case "logs":
+                        if (!selectedItem.equals(lastSelectedItemLogs)) {
+                            autoCompleteDbKey.setText(selectedItem);
+                            lastSelectedItemLogs = selectedItem;
+                        }
+                        break;
+                }
+            }
 
-            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-            params.width = 0;
-            params.height = GridLayout.LayoutParams.WRAP_CONTENT;
-            params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-            params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-            button.setLayoutParams(params);
-            button.setPadding(16, 16, 16, 16);
-
-            button.setOnClickListener(v -> tvDbKey.setText(buttonText));
-            gridButtons.addView(button);
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
     }
 
     private void moveToNextColumn() {
@@ -132,9 +174,9 @@ public class KeySelectionActivity extends AppCompatActivity {
                         List<Map<String, String>> csvData = readDataFromCSV(fileUri);
                         List<Belt> belts = mapData(csvData);
                         insertData(belts);
-                        Intent resultIntent = new Intent();
-                        resultIntent.putExtra("columnToKeyMap", (HashMap<String, String>) columnToKeyMap);
-                        setResult(RESULT_OK, resultIntent);
+                        Intent mainActivityIntent = new Intent(KeySelectionActivity.this, MainActivity.class);
+                        mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(mainActivityIntent);
                         finish();
                     } else {
                         Log.e("KeySelectionActivity", "File URI is null when trying to read CSV");
@@ -161,9 +203,8 @@ public class KeySelectionActivity extends AppCompatActivity {
         String currentColumn = columnHeaders.get(currentIndex);
         tvUserColumnValue.setText("Current Column: " + currentColumn);
         tvProgress.setText(String.format("Processing %d of %d Columns", currentIndex + 1, columnHeaders.size()));
-        tvDbKey.setText(currentColumn);
+        autoCompleteDbKey.setText(currentColumn, false);  // Set default text
     }
-
 
     private List<Map<String, String>> readDataFromCSV(Uri fileUri) {
         List<Map<String, String>> data = new ArrayList<>();
@@ -211,8 +252,6 @@ public class KeySelectionActivity extends AppCompatActivity {
         return data;
     }
 
-
-
     private List<Belt> mapData(List<Map<String, String>> csvData) {
         List<Belt> belts = new ArrayList<>();
         for (Map<String, String> row : csvData) {
@@ -233,25 +272,8 @@ public class KeySelectionActivity extends AppCompatActivity {
         new Thread(() -> {
             BeltDao beltDao = db.beltDao();
             for (Belt belt : belts) {
-                try {
-                    Log.d("KeySelectionActivity", "Inserting belt: " + belt.getDetails().toString());
-                    beltDao.insert(belt);
-                    Log.d("KeySelectionActivity", "Inserted belt: " + belt.getDetails().toString());
-                } catch (Exception e) {
-                    Log.e("KeySelectionActivity", "Error inserting belt", e);
-                }
+                beltDao.insert(belt);
             }
-
-            // Retrieve and log all belts after insertion
-            List<Belt> allBelts = beltDao.getAllBelts();
-            for (Belt belt : allBelts) {
-                Log.d("KeySelectionActivity", "Retrieved belt from DB: " + belt.getDetails().toString());
-            }
-            runOnUiThread(() -> {
-                Intent intent = new Intent(KeySelectionActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            });
         }).start();
     }
 }

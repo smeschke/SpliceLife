@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-
-    android:background="@drawable/background_gradient"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/background_gradient">
 
     <TextView
         android:id="@+id/headerTextView"
@@ -13,7 +11,8 @@
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:text="Belt Name: 32123\nCompany: null\nLocation: null"/>
 
     <TextView
         android:id="@+id/logsTextView"
@@ -23,37 +22,58 @@
         android:layout_marginTop="16dp"
         android:textSize="14sp"/>
 
-    <EditText
-        android:id="@+id/newLogEntryEditText"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logsTextView"
-        android:layout_marginTop="16dp"
-        android:hint="Enter new log entry"/>
+        android:layout_above="@+id/bottomLayout"
+        android:layout_marginTop="16dp">
 
-    <Button
-        android:id="@+id/saveLogButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/newLogEntryEditText"
-        android:layout_marginTop="16dp"
-        android:text="Save"/>
+        <!-- Add any other views that need to scroll here -->
 
-    <Button
-        android:id="@+id/copyLastTwoLogsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/saveLogButton"
-        android:layout_alignTop="@id/saveLogButton"
-        android:layout_marginStart="8dp"
-        android:text="Copy Last Two Logs"/>
+    </ScrollView>
 
-    <Button
-        android:id="@+id/copyAllLogsButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/copyLastTwoLogsButton"
-        android:layout_alignTop="@id/saveLogButton"
-        android:layout_marginStart="8dp"
-        android:text="Copy All Logs"/>
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <EditText
+            android:id="@+id/newLogEntryEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter new log entry"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/saveLogButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"/>
+
+            <Button
+                android:id="@+id/copyLastTwoLogsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Copy Last Two"/>
+
+            <Button
+                android:id="@+id/copyAllLogsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Copy All"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>

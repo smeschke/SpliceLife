@@ -1,6 +1,6 @@
 <resources>
     <color name="colorPrimary">#FFFFFF</color> <!-- Dark Grey -->
-    <color name="colorPrimaryDark">#B9B9B9</color> <!-- Darker Grey -->
+    <color name="colorPrimaryDark">#89878D</color> <!-- Darker Grey -->
     <color name="colorAccent">#00FF00</color> <!-- Old-school Green -->
     <color name="inputBackground">#3E3E3E</color> <!-- Grey for Input Fields -->
     <color name="textColorPrimary">#FFFFFF</color> <!-- White for Primary Text -->

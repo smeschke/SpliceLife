@@ -20,9 +20,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:contentDescription="add_belt"
-        android:src="@drawable/ic_launcher_background"
-        app:backgroundTint="@color/design_default_color_background"
-        app:fabSize="normal"/>
+        android:src="@drawable/ic_fab"
+        />
 
 </RelativeLayout>

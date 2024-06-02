@@ -84,14 +84,23 @@ public class EditLogActivity extends AppCompatActivity {
 
         }
     }
+
+    private String getHeader() {
+        return "Belt Name: " + belt.getDetails().get("conveyorName") + "\n" +
+                "Company: " + belt.getDetails().get("companyName") + "\n" +
+                "Location: " + belt.getDetails().get("conveyorLocation") + "\n\n";
+    }
+
     private void copyLastTwoLogs() {
         String[] logEntries = logsTextView.getText().toString().split("\n\n");
         String logsToCopy = logEntries.length >= 2 ? logEntries[0] + "\n\n" + logEntries[1] : logEntries[0];
+        logsToCopy = getHeader() + logsToCopy;
         copyToClipboard(logsToCopy);
     }
 
     private void copyAllLogs() {
         String logsToCopy = logsTextView.getText().toString();
+        logsToCopy = getHeader() + logsToCopy;
         copyToClipboard(logsToCopy);
     }
 
