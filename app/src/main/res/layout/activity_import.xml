@@ -29,13 +29,13 @@
         android:id="@+id/selectFileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select File" />
+        android:text="Select File to Import" />
 
     <Button
-        android:id="@+id/saveToSpreadsheetButton"
+        android:id="@+id/exportButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save to Spreadsheet" />
+        android:text="EXPORT FUNCTION\nSAVE ALL DATA TO CSV FILE" />
 
 
     <!-- Additional UI elements as needed -->

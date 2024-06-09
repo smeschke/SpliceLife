@@ -7,9 +7,9 @@
         <item>conveyorLocation:general</item>
         <item>completedBy:general</item>
         <item>customerContact:general</item>
-        <item>companyName:general</item>
+        <item>customerName:general</item>
         <item>conveyorReferenceCode:general</item>
-        <item>motorNumber</item>
+        <item>motorNumber:general</item>
         <item>projectName:general</item>
         <item>conveyorType:general</item>
         <item>totalBeltLength:beltParameters</item>
@@ -91,6 +91,8 @@
         <item>cookTime:spliceDetails</item>
         <item>cookPressure:spliceDetails</item>
         <item>distanceToWater:spliceDetails</item>
+        <item>overallJobTime:spliceDetails</item>
+        <item>locationOfBestBathroomsNearSpliceSpot:spliceDetails</item>
         <item>avaliablePower:spliceDetails</item>
         <item>toolsRequired:spliceDetails</item>
         <item>spliceNotes:spliceDetails</item>
@@ -105,10 +107,119 @@
         <item>installReports:logs</item>
     </string-array>
 
+
+
+    <string-array name="beltParametersHuman">
+        <item>acceleration:Acceleration Time</item>
+        <item>ambientTemperatureMax:Max Ambient Temperature</item>
+        <item>ambientTemperatureMin:Minimum Ambient Temperature</item>
+        <item>availableTakeUpLength:Available Take Up Length</item>
+        <item>avaliablePower:Power Sources Available</item>
+        <item>beltSpeed:Belt Speed</item>
+        <item>beltThickness:Belt Thickness</item>
+        <item>beltWidth:Belt Width</item>
+        <item>bottomCoverThickness:Bottom Cover Thickness</item>
+        <item>breakerType:Breaker Type</item>
+        <item>busingPartNo:Bushing Part Number</item>
+        <item>capacity:Capacity</item>
+        <item>carcassMaterial:Carcass Material</item>
+        <item>centerToCenter:Center to Center</item>
+        <item>contactAngleForDrivePulleyOne:Contact Angle for Drive Pulley One</item>
+        <item>contactAngleForDrivePulleyTwo:Contact Angle for Drive Pulley Two</item>
+        <item>conveyorHeightHead:Conveyor Height Head</item>
+        <item>conveyorHeightTail:Conveyor Height Tail</item>
+        <item>conveyorLocation:Conveyor Location</item>
+        <item>conveyorLocations:Location of </item>
+        <item>conveyorName:Conveyor Name</item>
+        <item>conveyorReferenceCode:Conveyor Reference Code</item>
+        <item>conveyorType:Conveyor Type</item>
+        <item>cookLocation:Cook Location</item>
+        <item>cookPressure:Cook Pressure</item>
+        <item>cookTime:Cook Time</item>
+        <item>coverBeltQuality:Cover/Belt Quality</item>
+        <item>customerContact:Customer Contact</item>
+        <item>customerName:Customer Name</item>
+        <item>distanceToWater:Distance to Water</item>
+        <item>drivePulleyDiameter:Drive Pulley Diameter</item>
+        <item>driveType:Drive Type</item>
+        <item>expectedBeltLife:Expected Belt Life</item>
+        <item>fallHeight:Fall Height</item>
+        <item>flatOrCrownPulley:Flat orCrown Pulley</item>
+        <item>gearbox:Gearbox</item>
+        <item>headPulleyDiameter:Head Pulley Diameter</item>
+        <item>hubType:Pulley Hub Type</item>
+        <item>idlerDiameterCarry:Idler Diameter (Carry Side)</item>
+        <item>idlerDiameterReturn:Idler Diameter (Return Side)</item>
+        <item>idlerSpacingCarry:Idler Spacing (Carry Side)</item>
+        <item>idlerSpacingReturn:Idler Spacing (Return Side)</item>
+        <item>impactSliderBed:Impact Slider Bed</item>
+        <item>installReports:Install Reports</item>
+        <item>installedMotorPowerPerDrivePulley:Installed Motor Power Per Drive Pulley</item>
+        <item>laggingCompund:Lagging Compound</item>
+        <item>laggingStyle:Lagging Style</item>
+        <item>laggingThickness:Lagging Thickness</item>
+        <item>lastSpliceBy:Last Splice Installed By</item>
+        <item>lengthOfSkirtingBoards:Length of Skirting Boards</item>
+        <item>locationOfDrivePulley:Location of Drive Pulley</item>
+        <item>locationTensioningSystem:Location of Tensioning System</item>
+        <item>logs:Logs</item>
+        <item>lumpSize:Lump Size</item>
+        <item>materialDensity:Material Density</item>
+        <item>materialProperties:Material Properties</item>
+        <item>materialSpillage:Material Spillage</item>
+        <item>materialTemperatureAverage:Average Material Temperature</item>
+        <item>materialTemperatureMaximum:Maximum Material Temperature</item>
+        <item>maxInclinationAngle:Max Inclination Angle</item>
+        <item>numberAndTypeOfScrapers:Number and type of scrapers</item>
+        <item>numberOfDrivePulleys:Number of Drive Pulleys</item>
+        <item>numberOfPliesCords:Number or Plies/Cords</item>
+        <item>numberOfPlows:Number of Plows</item>
+        <item>numberOfSplices:Number of Splices</item>
+        <item>primaryScraperLength:Primary Scraper Length</item>
+        <item>projectName:Project Name</item>
+        <item>pulleyFaceWidth:Pulley Face Width</item>
+        <item>pulleyStyle:Pulley Style</item>
+        <item>pulleyType:Pulley Type</item>
+        <item>reversible:Conveyor Is Reversible</item>
+        <item>rubbedOffPaint:Rubbed Off Paint</item>
+        <item>rubberType:Rubber Type</item>
+        <item>secondaryScraperLength:Secondary Scraper Length</item>
+        <item>shineyMetal:Shiney Metal</item>
+        <item>spliceDirection:Splice Direction</item>
+        <item>spliceMaterialManufacturer:Splice Material Manufacturer</item>
+        <item>spliceNotes:Splice Notes</item>
+        <item>startUpCondition:Start-up Condition</item>
+        <item>stepLength:Step Length</item>
+        <item>sunbPulleyDiameter:Snub Pulley Diameter</item>
+        <item>tailPulleyDiameter:Tail Pulley Diameter</item>
+        <item>takeUp:Take Up </item>
+        <item>takeUpIsAdiquate:Take Up is Adiqute</item>
+        <item>takeUpNutSize:Take Up Nut Size (screw takeups)</item>
+        <item>takeUpWeight:Take Up Weight (gravity takeups)</item>
+        <item>tensileStrength:Tensile Strenght</item>
+        <item>tensionPulleyDiameter:Tension Pulley Diameter</item>
+        <item>tensioningSystemType:Tensioning System Type</item>
+        <item>tipperPulleyDiameter:Tipper Pulley Diameter</item>
+        <item>toolsRequired:Tools Required</item>
+        <item>topCoverThickness:Top Cover Thickness</item>
+        <item>totalBeltLength:Total Belt Length</item>
+        <item>trainingRollerLocation:Location of Training Roller(s)</item>
+        <item>transitionDistanceHead:Transition Distance at Head</item>
+        <item>transitionDistanceTail:Transition Distance at Tail</item>
+        <item>troughingAngleCarry:Troughing Angle (Carry Side)</item>
+        <item>troughingAngleReturn:Troughing Angle (Return Side)</item>
+        <item>typeOfMaterial:Type of Material</item>
+        <item>typeOfPulleyLagging:Type of Pulley Lagging</item>
+        <item>verticalCurves:Vertical Curves</item>
+        <item>weldedOrBushing:Welded or Busing Pulley</item>
+    </string-array>
+
+
+
     <string-array name="beltParametersSimple">
         <item>conveyorName:general</item>
         <item>conveyorLocation:general</item>
-        <item>companyName:general</item>
+        <item>customerName:general</item>
         <item>totalBeltLength:beltParameters</item>
         <item>beltWidth:beltParameters</item>
         <item>tensileStrength:beltParameters</item>

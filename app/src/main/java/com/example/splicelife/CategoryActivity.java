@@ -29,7 +29,7 @@ public class CategoryActivity extends AppCompatActivity {
     private Belt belt;
     private BeltDao beltDao;
     private Map<String, String> keyCategoryMap;
-    private List<String> userDefinedKeys;
+    private Map<String, String> keyHumanNameMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
 
         keyCategoryMap = loadKeyCategoryMap(); // Load key-category map
-        userDefinedKeys = new ArrayList<>();
+        keyHumanNameMap = loadKeyHumanNameMap(); // Load key-human name map
 
         categoryRecyclerView = findViewById(R.id.categoryRecyclerView);
         categoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -47,8 +47,6 @@ public class CategoryActivity extends AppCompatActivity {
         beltDao = db.beltDao();
         belt = beltDao.getBeltById(beltId);
 
-        FloatingActionButton fabAddCustom = findViewById(R.id.fab_add_custom);
-        fabAddCustom.setOnClickListener(v -> showAddCustomDialog());
 
         displayBeltCategories(); // Display categories with details
 
@@ -90,44 +88,6 @@ public class CategoryActivity extends AppCompatActivity {
         }
     }
 
-    private void showAddCustomDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Add Custom Detail");
-
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_custom, null);
-        builder.setView(dialogView);
-
-        EditText editTextKey = dialogView.findViewById(R.id.editTextKey);
-        EditText editTextValue = dialogView.findViewById(R.id.editTextValue);
-
-        builder.setPositiveButton("Add", (dialog, which) -> {
-            String key = editTextKey.getText().toString();
-            String value = editTextValue.getText().toString();
-            if (!key.isEmpty() && !value.isEmpty()) {
-                addCustomDetail(key, value);
-            }
-        });
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-
-        builder.create().show();
-    }
-
-
-    private void addCustomDetail(String key, String value) {
-        // Add custom key-value pair to belt details and save to database
-        Map<String, String> beltDetails = belt.getDetails();
-        beltDetails.put(key, value);
-        belt.setDetails(beltDetails);
-        beltDao.update(belt); // Save the updated belt back to the database
-
-        // Add the key to user defined keys list if it's not already there
-        if (!userDefinedKeys.contains(key)) {
-            userDefinedKeys.add(key);
-        }
-
-        displayBeltCategories(); // Refresh categories to show the new custom detail
-    }
-
     private Map<String, String> loadKeyCategoryMap() {
         Map<String, String> map = new HashMap<>();
         Resources res = getResources();
@@ -144,6 +104,22 @@ public class CategoryActivity extends AppCompatActivity {
         return map;
     }
 
+    private Map<String, String> loadKeyHumanNameMap() {
+        Map<String, String> map = new HashMap<>();
+        Resources res = getResources();
+        String[] beltParametersHuman = res.getStringArray(R.array.beltParametersHuman);
+
+        for (String parameter : beltParametersHuman) {
+            String[] parts = parameter.split(":");
+            if (parts.length == 2) {
+                map.put(parts[0], parts[1]);
+            }
+        }
+
+        return map;
+    }
+
+
     private void displayBeltCategories() {
         if (belt != null) {
             Map<String, String> details = belt.getDetails();
@@ -152,8 +128,13 @@ public class CategoryActivity extends AppCompatActivity {
             Map<String, List<String>> categoryDetails = new HashMap<>();
             for (Map.Entry<String, String> entry : details.entrySet()) {
                 String category = getCategory(entry.getKey());
+
+                String humanReadableName = keyHumanNameMap.get(entry.getKey());
+                String displayText = humanReadableName != null
+                        ? humanReadableName + ": " + entry.getValue()
+                        : entry.getKey() + ": " + entry.getValue();
                 categoryDetails.putIfAbsent(category, new ArrayList<>());
-                categoryDetails.get(category).add(entry.getKey() + ": " + entry.getValue());
+                categoryDetails.get(category).add(displayText);
             }
 
             // Ensure all categories are present in the map, even if they are empty
@@ -166,15 +147,6 @@ public class CategoryActivity extends AppCompatActivity {
                 if (entry.getValue().isEmpty()) {
                     entry.getValue().add("No items present");
                 }
-            }
-
-            // Add user defined category if there are custom keys
-            if (!userDefinedKeys.isEmpty()) {
-                List<String> userDefinedDetails = new ArrayList<>();
-                for (String key : userDefinedKeys) {
-                    userDefinedDetails.add(key + ": " + details.get(key));
-                }
-                categoryDetails.put("User Defined", userDefinedDetails);
             }
 
             // Create a list of categories
@@ -203,5 +175,4 @@ public class CategoryActivity extends AppCompatActivity {
             }
         }
     }
-
 }
