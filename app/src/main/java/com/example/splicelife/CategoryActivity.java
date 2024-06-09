@@ -119,7 +119,6 @@ public class CategoryActivity extends AppCompatActivity {
         return map;
     }
 
-
     private void displayBeltCategories() {
         if (belt != null) {
             Map<String, String> details = belt.getDetails();
@@ -150,11 +149,34 @@ public class CategoryActivity extends AppCompatActivity {
             }
 
             // Create a list of categories
-            List<String> categories = new ArrayList<>(categoryDetails.keySet());
+            List<String> categories = new ArrayList<>();
+
+            // Add prioritized categories first
+            if (categoryDetails.containsKey("general")) {
+                categories.add("general");
+            }
+            if (categoryDetails.containsKey("beltParameters")) {
+                categories.add("beltParameters");
+            }
+            if (categoryDetails.containsKey("spliceDetails")) {
+                categories.add("spliceDetails");
+            }
+            if (categoryDetails.containsKey("logs")) {
+                categories.add("logs");
+            }
+
+            // Add remaining categories
+            for (String category : categoryDetails.keySet()) {
+                if (!categories.contains(category)) {
+                    categories.add(category);
+                }
+            }
+
             categoryAdapter = new CategoryAdapter(categories, categoryDetails, this, belt); // Pass context and belt object
             categoryRecyclerView.setAdapter(categoryAdapter);
         }
     }
+
 
     private String getCategory(String key) {
         return keyCategoryMap.getOrDefault(key, "User Defined");

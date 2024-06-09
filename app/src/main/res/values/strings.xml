@@ -107,7 +107,22 @@
         <item>installReports:logs</item>
     </string-array>
 
-
+    <string-array name="categoriesHuman">
+        <item>general:General</item>
+        <item>beltParameters:Belt Parameters</item>
+        <item>conveyorDetails:Conveyor Details</item>
+        <item>idlersAndReturns:Idlers and Returns</item>
+        <item>pulleys:Pulleys</item>
+        <item>tensioningSystem:Tensioning System</item>
+        <item>driveSystem:Drive System</item>
+        <item>materialsCarried:Materials Carried</item>
+        <item>operatingConditions:Operating Conditions</item>
+        <item>spliceDetails:Splice Details</item>
+        <item>loading:Loading</item>
+        <item>discharge:Discharge</item>
+        <item>logs:Logs</item>
+        <item>inspection:Inspection</item>
+    </string-array>
 
     <string-array name="beltParametersHuman">
         <item>acceleration:Acceleration Time</item>
