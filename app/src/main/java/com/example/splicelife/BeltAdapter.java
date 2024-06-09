@@ -50,7 +50,7 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
         callout.append(belt.getDetails().get(keys[2]) + "\n\n");
         callout.append(belt.getDetails().get(keys[3]) + " X " + belt.getDetails().get(keys[4]) + "\n");
         callout.append(belt.getDetails().get(keys[6]) + " / " + belt.getDetails().get(keys[5]) + "\n");
-        callout.append(belt.getDetails().get(keys[7]) + " X " + belt.getDetails().get(keys[8]) + "\n");
+        callout.append(belt.getDetails().get(keys[7]) + " X " + belt.getDetails().get(keys[8]));
 
         if (callout.length() == 0) {
             callout.append("No belt name entered");

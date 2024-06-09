@@ -130,10 +130,10 @@ public class CategoryActivity extends AppCompatActivity {
 
                 String humanReadableName = keyHumanNameMap.get(entry.getKey());
                 String displayText = humanReadableName != null
-                        ? humanReadableName + ": " + entry.getValue()
+                        ? humanReadableName + ": \n" + entry.getValue()
                         : entry.getKey() + ": " + entry.getValue();
                 categoryDetails.putIfAbsent(category, new ArrayList<>());
-                categoryDetails.get(category).add(displayText);
+                categoryDetails.get(category).add(displayText+"\n");
             }
 
             // Ensure all categories are present in the map, even if they are empty
