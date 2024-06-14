@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder> {
-    private List<Belt> beltList;
     private final OnItemClickListener onItemClickListener;
+    private List<Belt> beltList;
 
     public BeltAdapter(List<Belt> beltList, OnItemClickListener onItemClickListener) {
         this.beltList = beltList;
@@ -92,21 +92,6 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
         return beltList.size();
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(Belt belt);
-    }
-
-    public static class BeltViewHolder extends RecyclerView.ViewHolder {
-        TextView beltNameTextView;
-        TextView logDetailsTextView;
-
-        public BeltViewHolder(@NonNull View itemView) {
-            super(itemView);
-            beltNameTextView = itemView.findViewById(R.id.beltName);
-            logDetailsTextView = itemView.findViewById(R.id.logDetails);
-        }
-    }
-
     public void updateBeltList(List<Belt> newBeltList) {
         this.beltList = newBeltList;
         notifyDataSetChanged();
@@ -120,6 +105,7 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
     public Belt getBeltAtPosition(int position) {
         return beltList.get(position);
     }
+
     public int getPositionById(int beltId) {
         for (int i = 0; i < beltList.size(); i++) {
             if (beltList.get(i).getId() == beltId) {
@@ -132,5 +118,20 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
     public void updateBeltAtPosition(int position, Belt updatedBelt) {
         beltList.set(position, updatedBelt);
         notifyItemChanged(position);
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Belt belt);
+    }
+
+    public static class BeltViewHolder extends RecyclerView.ViewHolder {
+        TextView beltNameTextView;
+        TextView logDetailsTextView;
+
+        public BeltViewHolder(@NonNull View itemView) {
+            super(itemView);
+            beltNameTextView = itemView.findViewById(R.id.beltName);
+            logDetailsTextView = itemView.findViewById(R.id.logDetails);
+        }
     }
 }

@@ -29,13 +29,14 @@
         android:id="@+id/selectFileButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select File to Import" />
+        android:text="IMPORT FUNCTION\nSelect File to Import" />
 
     <Button
-        android:id="@+id/exportButton"
+        android:id="@+id/exportJsonButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="EXPORT FUNCTION\nSAVE ALL DATA TO CSV FILE" />
+        android:layout_margin="30dp"
+        android:text="EXPORT FUNCTION\nSave All Data to\nJSON File\nand save in 'Documents' folder " />
 
 
     <!-- Additional UI elements as needed -->
