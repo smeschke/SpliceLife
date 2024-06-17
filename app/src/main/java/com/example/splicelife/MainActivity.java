@@ -3,6 +3,7 @@ package com.example.splicelife;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Observe the belt list LiveData
         beltViewModel.getAllBelts().observe(this, belts -> {
+            Log.d("TAG", "Observasdfed " + belts.size() + " belts in the main activity");
+
             beltAdapter = new BeltAdapter(belts, belt -> {
                 Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
                 intent.putExtra("belt_id", belt.getId());
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.cancel())
-                .setNeutralButton("Import from CSV", (dialog, id) -> {
+                .setNeutralButton("Database", (dialog, id) -> {
                     // Handle importing belts from a CSV file
                     Intent intent = new Intent(MainActivity.this, ImportActivity.class);
                     startActivityForResult(intent, REQUEST_CODE_IMPORT);

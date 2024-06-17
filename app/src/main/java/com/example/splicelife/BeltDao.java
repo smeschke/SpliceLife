@@ -24,8 +24,7 @@ public interface BeltDao {
     void update(Belt belt);
 
 
-
-        @Delete
-        void delete(Belt belt);  // Add this method
-    }
+    @Delete
+    void delete(Belt belt);  // Add this method
+}
 

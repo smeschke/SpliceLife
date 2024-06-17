@@ -3,6 +3,7 @@ package com.example.splicelife;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,35 +23,41 @@ import androidx.lifecycle.ViewModelProvider;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class ImportActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 1;
     private static final int REQUEST_CODE_MANAGE_EXTERNAL_STORAGE = 2;
+    private static final int PICK_JSON_FILE = 3;
+
     private TextView importInstructionsTextView;
     private Button exportJsonButton;
+    private Button uploadJsonButton;
 
     private BeltViewModel beltViewModel;
+
     private List<Belt> belts;
+    private static final String TAG = "ImportActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_import);
 
-        importInstructionsTextView = findViewById(R.id.importInstructionsTextView);
         exportJsonButton = findViewById(R.id.exportJsonButton);
-
-        String importInstructions = "To export your data to a JSON file:\n\n" +
-                "1. Click the 'Export to JSON' button below.\n" +
-                "2. The file will be saved to the Documents folder on your device.\n" +
-                "If you encounter any issues, please contact support for assistance.";
-        importInstructionsTextView.setText(importInstructions);
+        uploadJsonButton = findViewById(R.id.importJsonButton);
 
         exportJsonButton.setOnClickListener(v -> exportDataToJSON());
+        uploadJsonButton.setOnClickListener(v -> openFilePicker());
 
         // Request storage permissions if not granted
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -66,28 +73,23 @@ public class ImportActivity extends AppCompatActivity {
 
         // Initialize BeltViewModel
         beltViewModel = new ViewModelProvider(this).get(BeltViewModel.class);
-
         // Observe the belt list LiveData
         beltViewModel.getAllBelts().observe(this, belts -> {
             this.belts = belts;
         });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_WRITE_EXTERNAL_STORAGE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted
-            } else {
-                Toast.makeText(this, "Permission denied to write to external storage", Toast.LENGTH_SHORT).show();
-            }
-        }
+    private void openFilePicker() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("application/json");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        startActivityForResult(Intent.createChooser(intent, "Select JSON File"), PICK_JSON_FILE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == REQUEST_CODE_MANAGE_EXTERNAL_STORAGE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                 if (Environment.isExternalStorageManager()) {
@@ -96,7 +98,57 @@ public class ImportActivity extends AppCompatActivity {
                     Toast.makeText(this, "Permission denied to manage external storage", Toast.LENGTH_SHORT).show();
                 }
             }
+        } else if (requestCode == PICK_JSON_FILE && resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+            if (uri != null) {
+                readJsonFromUri(uri);
+            }
         }
+    }
+
+    private void readJsonFromUri(Uri uri) {
+        try {
+            InputStream inputStream = getContentResolver().openInputStream(uri);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            inputStream.close();
+            String jsonContent = stringBuilder.toString();
+            saveDataToDatabase(jsonContent);
+        } catch (Exception e) {
+            Log.e(TAG, "Error reading JSON file", e);
+            Toast.makeText(this, "Error reading JSON file", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void saveDataToDatabase(String jsonContent) {
+        new Thread(() -> {
+            try {
+                JSONArray jsonArray = new JSONArray(jsonContent);
+                List<String> addedBeltNames = new ArrayList<>();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject beltJson = jsonArray.getJSONObject(i);
+                    Map<String, String> beltMap = new HashMap<>();
+                    for (Iterator<String> it = beltJson.keys(); it.hasNext(); ) {
+                        String key = it.next();
+                        beltMap.put(key, beltJson.getString(key));
+                    }
+                    Belt belt = new Belt(beltMap);
+                    beltViewModel.insert(belt);
+                    addedBeltNames.add(belt.getDetails().get("conveyorName")); // Assuming "conveyorName" is the belt name
+                }
+                runOnUiThread(() -> {
+                    String message = "Belts added: " + String.join(", ", addedBeltNames);
+                    Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+                });
+            } catch (Exception e) {
+                Log.e(TAG, "Failed to save data to database: " + e.getMessage(), e);
+                runOnUiThread(() -> Toast.makeText(this, "Failed to save data to database: " + e.getMessage(), Toast.LENGTH_LONG).show());
+            }
+        }).start();
     }
 
     private void exportDataToJSON() {
@@ -137,5 +189,17 @@ public class ImportActivity extends AppCompatActivity {
                 runOnUiThread(() -> Toast.makeText(this, "Failed to export data: " + e.getMessage(), Toast.LENGTH_LONG).show());
             }
         }).start();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_WRITE_EXTERNAL_STORAGE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted
+            } else {
+                Toast.makeText(this, "Permission denied to write to external storage", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

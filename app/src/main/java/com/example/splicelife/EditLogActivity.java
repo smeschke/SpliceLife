@@ -45,7 +45,7 @@ public class EditLogActivity extends AppCompatActivity {
 
         // Set header text
         String header = "Belt Name: " + belt.getDetails().get("conveyorName") + "\n" +
-                "Company: " + belt.getDetails().get("companyName") + "\n" +
+                "Company: " + belt.getDetails().get("customerName") + "\n" +
                 "Location: " + belt.getDetails().get("conveyorLocation");
         headerTextView.setText(header);
 

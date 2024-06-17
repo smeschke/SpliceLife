@@ -1,44 +1,25 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp">
 
-    android:background="@drawable/background_gradient"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".ImportActivity">
-
-    <TextView
-        android:id="@+id/importExplanationTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="How to Use the Upload Feature"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:id="@+id/importInstructionsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Include other UI elements for the import activity, such as buttons for file selection -->
     <Button
-        android:id="@+id/selectFileButton"
-        android:layout_width="match_parent"
+        android:id="@+id/importJsonButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="IMPORT FUNCTION\nSelect File to Import" />
+        android:text="import json file"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/exportJsonButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:text="EXPORT FUNCTION\nSave All Data to\nJSON File\nand save in 'Documents' folder " />
+        android:text="export json file to documents folder"
+        android:layout_below="@id/importJsonButton"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"/>
 
 
-    <!-- Additional UI elements as needed -->
-
-</LinearLayout>
+</RelativeLayout>
