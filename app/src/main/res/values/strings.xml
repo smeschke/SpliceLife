@@ -1,326 +1,473 @@
-
 <resources>
     <string name="app_name">Splice Life</string>
     <string-array name="beltParameters">
-        <item>conveyorName:general</item>
-        <item>conveyorLocation:general</item>
-        <item>customerContact:general</item>
-        <item>customerName:general</item>
-        <item>conveyorReferenceCode:general</item>
-        <item>expectedBeltLife:general</item>
-        <item>projectName:general</item>
-        <item>conveyorType:general</item>
-        <item>totalBeltLength:beltParameters</item>
-        <item>beltWidth:beltParameters</item>
-        <item>tensileStrength:beltParameters</item>
-        <item>numberOfPliesCords:beltParameters</item>
-        <item>topCoverThickness:beltParameters</item>
-        <item>bottomCoverThickness:beltParameters</item>
-        <item>coverBeltQuality:beltParameters</item>
-        <item>beltThickness:beltParameters</item>
-        <item>carcassMaterial:beltParameters</item>
-        <item>breakerType:beltParameters</item>
-        <item>rubberType:beltParameters</item>
-        <item>centerToCenter:conveyorDetails</item>
-        <item>maxInclinationAngle:conveyorDetails</item>
-        <item>beltSpeed:conveyorDetails</item>
-        <item>reversible:conveyorDetails</item>
-        <item>capacity:conveyorDetails</item>
-        <item>conveyorHeightHead:conveyorDetails</item>
-        <item>conveyorHeightTail:conveyorDetails</item>
-        <item>verticalCurves:conveyorDetails</item>
-        <item>trainingRollerLocation:idlersAndReturns</item>
-        <item>transitionDistanceTail:idlersAndReturns</item>
-        <item>transitionDistanceHead:idlersAndReturns</item>
-        <item>troughingAngleCarry:idlersAndReturns</item>
-        <item>troughingAngleReturn:idlersAndReturns</item>
-        <item>tensioningSystemType:idlersAndReturns</item>
-        <item>idlerSpacingCarry:idlersAndReturns</item>
-        <item>idlerSpacingReturn:idlersAndReturns</item>
-        <item>idlerDiameterCarry:idlersAndReturns</item>
-        <item>idlerDiameterReturn:idlersAndReturns</item>
-        <item>headPulleyDiameter:pulleys</item>
-        <item>tensionPulleyDiameter:pulleys</item>
-        <item>tailPulleyDiameter:pulleys</item>
-        <item>sunbPulleyDiameter:pulleys</item>
-        <item>tipperPulleyDiameter:pulleys</item>
-        <item>pulleyFaceWidth:pulleys</item>
-        <item>weldedOrBushing:pulleys</item>
-        <item>flatOrCrownPulley:pulleys</item>
-        <item>pulleyType:pulleys</item>
-        <item>pulleyStyle:pulleys</item>
-        <item>busingPartNo:pulleys</item>
-        <item>laggingStyle:pulleys</item>
-        <item>laggingCompund:pulleys</item>
-        <item>laggingThickness:pulleys</item>
-        <item>hubType:pulleys</item>
-        <item>takeUp:tensioningSystem</item>
-        <item>availableTakeUpLength:tensioningSystem</item>
-        <item>desiredTakeUpBeforeStretch:tensioningSystem</item>
-        <item>desiredTakeUpAfterStretch:tensioningSystem</item>
-        <item>takeUpWeight:tensioningSystem</item>
-        <item>takeUpNutSize:tensioningSystem</item>
-        <item>locationTensioningSystem:tensioningSystem</item>
-        <item>takeUpIsAdiquate:tensioningSystem</item>
-        <item>installedMotorPowerPerDrivePulley:driveSystem</item>
-        <item>acceleration:driveSystem</item>
-        <item>driveType:driveSystem</item>
-        <item>gearbox:driveSystem</item>
-        <item>contactAngleForDrivePulleyOne:driveSystem</item>
-        <item>contactAngleForDrivePulleyTwo:driveSystem</item>
-        <item>numberOfDrivePulleys:driveSystem</item>
-        <item>typeOfPulleyLagging:driveSystem</item>
-        <item>drivePulleyDiameter:driveSystem</item>
-        <item>locationOfDrivePulley:driveSystem</item>
-        <item>startUpCondition:driveSystem</item>
-        <item>typeOfMaterial:materialsCarried</item>
-        <item>materialProperties:materialsCarried</item>
-        <item>materialDensity:materialsCarried</item>
-        <item>lumpSize:materialsCarried</item>
-        <item>materialTemperatureAverage:materialsCarried</item>
-        <item>materialTemperatureMaximum:materialsCarried</item>
-        <item>conveyorLocations:operatingConditions</item>
-        <item>ambientTemperatureMax:operatingConditions</item>
-        <item>ambientTemperatureMin:operatingConditions</item>
-        <item>lastSpliceBy:spliceDetails</item>
-        <item>stepLength:spliceDetails</item>
-        <item>spliceMaterialManufacturer:spliceDetails</item>
-        <item>numberOfSplices:spliceDetails</item>
-        <item>spliceDirection:spliceDetails</item>
-        <item>cookLocation:spliceDetails</item>
-        <item>nearestBathroomToSpliceStation:spliceDetails</item>
-        <item>cookTime:spliceDetails</item>
-        <item>cookPressure:spliceDetails</item>
-        <item>distanceToWater:spliceDetails</item>
-        <item>beltStretch:spliceDetails</item>
-        <item>numberOfCooks:spliceDetails</item>
-        <item>avaliablePower:spliceDetails</item>
-        <item>toolsRequired:spliceDetails</item>
-        <item>spliceNotes:spliceDetails</item>
-        <item>lateralMovementControls:beltProtectionMethods</item>
-        <item>pluggedChuteShutoffs:beltProtectionMethods</item>
-        <item>speedControlDevices:beltProtectionMethods</item>
-        <item>slowdownProtection:beltProtectionMethods</item>
-        <item>sequenceProtection:beltProtectionMethods</item>
-        <item>overspeedControls:beltProtectionMethods</item>
-        <item>holdbackSystems:beltProtectionMethods</item>
-        <item>productTemperatureProtection:beltProtectionMethods</item>
-        <item>magenticProtectionDevice:beltProtectionMethods</item>
-        <item>emergencyStops:beltProtectionMethods</item>
-        <item>nan:beltProtectionMethods</item>
-        <item>nan:beltProtectionMethods</item>
-        <item>chuteDesign:loading</item>
-        <item>loadingAngle:loading</item>
-        <item>impactSliderBed:loading</item>
-        <item>lengthOfSkirtingBoards:loading</item>
-        <item>skirtboardDimentions:loading</item>
-        <item>otherSkirting:loading</item>
-        <item>fallHeight:loading</item>
-        <item>numberOfPlows:discharge</item>
-        <item>secondaryScraperLength:discharge</item>
-        <item>primaryScraperLength:discharge</item>
-        <item>numberAndTypeOfScrapers:discharge</item>
-        <item>logs:logs</item>
-        <item>installReports:logs</item>
-        <item>materialSpillage:inspection</item>
-        <item>shineyMetal:inspection</item>
-        <item>rubbedOffPaint:inspection</item>
-        <item>conditionOfPulleyLagging:inspection</item>
-        <item>idlerJunction:inspection</item>
-        <item>amountLoaded:inspection</item>
-        <item>carryback:inspection</item>
-        <item>mosture:inspection</item>
-        <item>sunlight:inspection</item>
-        <item>ozone:inspection</item>
-        <item>heat:inspection</item>
-        <item>oil:inspection</item>
-        <item>previousBeltFailure:inspection</item>
-        <item>previousBeltLife:inspection</item>
-        <item>previousBeltSpec:inspection</item>
-        <item>operatingAndEnvironmentalChanges:inspection</item>
-        <item>tracking:inspection</item>
-        <item>materialOnPulleys:inspection</item>
-        <item>beltCurl:inspection</item>
+        <item>Conveyor Name:general</item>
+        <item>Conveyor Location:general</item>
+        <item>Customer Contact:general</item>
+        <item>Company Name:general</item>
+        <item>Conveyor Reference Code:general</item>
+        <item>Expected Belt Life:general</item>
+        <item>Project Name:general</item>
+        <item>Conveyor Type:general</item>
+        <item>Total Belt Length:beltParameters</item>
+        <item>Belt Width:beltParameters</item>
+        <item>Tensile Strenght:beltParameters</item>
+        <item>Number or Plies/Cords:beltParameters</item>
+        <item>Top Cover Thickness:beltParameters</item>
+        <item>Bottom Cover Thickness:beltParameters</item>
+        <item>Cover/Belt Quality:beltParameters</item>
+        <item>Belt Thickness:beltParameters</item>
+        <item>Carcass Material:beltParameters</item>
+        <item>Breaker Type:beltParameters</item>
+        <item>Rubber Type:beltParameters</item>
+        <item>Center to Center:fieldSurvey</item>
+        <item>Max Inclination Angle:fieldSurvey</item>
+        <item>Belt Speed:fieldSurvey</item>
+        <item>Conveyor Is Reversible:fieldSurvey</item>
+        <item>Capacity:fieldSurvey</item>
+        <item>Conveyor Height Head:fieldSurvey</item>
+        <item>Conveyor Height Tail:fieldSurvey</item>
+        <item>Vertical Curves:fieldSurvey</item>
+        <item>Location of Training Roller(s):idlersAndReturns</item>
+        <item>Transition Distance at Tail:idlersAndReturns</item>
+        <item>Transition Distance at Head:idlersAndReturns</item>
+        <item>Troughing Angle (Carry Side):idlersAndReturns</item>
+        <item>Troughing Angle (Return Side):idlersAndReturns</item>
+        <item>Tensioning System Type:idlersAndReturns</item>
+        <item>Idler Spacing (Carry Side):idlersAndReturns</item>
+        <item>Idler Spacing (Return Side):idlersAndReturns</item>
+        <item>Idler Diameter (Carry Side):idlersAndReturns</item>
+        <item>Idler Diameter (Return Side):idlersAndReturns</item>
+        <item>Head Pulley Diameter:pulleys</item>
+        <item>Tension Pulley Diameter:pulleys</item>
+        <item>Tail Pulley Diameter:pulleys</item>
+        <item>Snub Pulley Diameter:pulleys</item>
+        <item>Tipper Pulley Diameter:pulleys</item>
+        <item>Pulley Face Width:pulleys</item>
+        <item>Welded or Busing Pulley:pulleys</item>
+        <item>Flat orCrown Pulley:pulleys</item>
+        <item>Pulley Type:pulleys</item>
+        <item>Pulley Style:pulleys</item>
+        <item>Bushing Part Number:pulleys</item>
+        <item>Lagging Style:pulleys</item>
+        <item>Lagging Compound:pulleys</item>
+        <item>Lagging Thickness:pulleys</item>
+        <item>Pulley Hub Type:pulleys</item>
+        <item>PPI ORDER FORM::pulleys</item>
+        <item>Belt...fabric or steel:pulleys</item>
+        <item>Takeup...gravity, gravity wire rope, hydraulic, screw:pulleys</item>
+        <item>Drive...motor HP, speed in FPM, capacity in TPH:pulleys</item>
+        <item>Layout...lenght in feet, lift in feet, material conveyed:pulleys</item>
+        <item>Service life...shifts per day, moths per year, pully life in years:pulleys</item>
+        <item>Quote...bearings type, B10 Life in hours, TU frame, idlers, impact system, ezslider, smart roll:pulleys</item>
+        <item>Parameters for quoting a pulley...convyeor id, pulley location, quantity, pulley type, OD without laggling, face width, crown or flat face, lagging thickness, lagging groove, lagging specs, shaft diameter at hub, shaft diameter @ HUB, shaft diameter @ BRG, shaft diameter @ DRIVE, # KW, shaft length, bearning center (BC), wrap (arc of contact), T1, T2:pulleys</item>
+        <item>Take Up Mechanism Type:tensioningSystem</item>
+        <item>Total Takeup Length:tensioningSystem</item>
+        <item>Available Take Up Length:tensioningSystem</item>
+        <item>Desired Take Up Position Before Belt Stretch:tensioningSystem</item>
+        <item>Desired Take Up Position After Belt Stretch:tensioningSystem</item>
+        <item>Take Up Weight (gravity takeups):tensioningSystem</item>
+        <item>Take Up Nut Size (screw takeups):tensioningSystem</item>
+        <item>Location of Tensioning System:tensioningSystem</item>
+        <item>Expected Initial Belt Stretch:tensioningSystem</item>
+        <item>Expected Total Stretch:tensioningSystem</item>
+        <item>Take Up is Adiqute:tensioningSystem</item>
+        <item>Installed Motor Power Per Drive Pulley:driveSystem</item>
+        <item>Acceleration Time:driveSystem</item>
+        <item>Drive Type:driveSystem</item>
+        <item>Gearbox:driveSystem</item>
+        <item>Contact Angle for Drive Pulley One:driveSystem</item>
+        <item>Contact Angle for Drive Pulley Two:driveSystem</item>
+        <item>Number of Drive Pulleys:driveSystem</item>
+        <item>Type of Pulley Lagging:driveSystem</item>
+        <item>Drive Pulley Diameter:driveSystem</item>
+        <item>Location of Drive Pulley:driveSystem</item>
+        <item>Start-up Condition:driveSystem</item>
+        <item>Type of Material:materialsAndFlow</item>
+        <item>Material Properties:materialsAndFlow</item>
+        <item>Material Density:materialsAndFlow</item>
+        <item>Lump Size:materialsAndFlow</item>
+        <item>Average Material Temperature:materialsAndFlow</item>
+        <item>Maximum Material Temperature:materialsAndFlow</item>
+        <item>Nearest Muster Station from Splice Location:spliceDetails</item>
+        <item>Last Splice Installed By:spliceDetails</item>
+        <item>Step Length:spliceDetails</item>
+        <item>Splice Material Manufacturer:spliceDetails</item>
+        <item>Number of Splices:spliceDetails</item>
+        <item>Splice Direction:spliceDetails</item>
+        <item>Cook Location:spliceDetails</item>
+        <item>Nearest Bathroom from Splice Location:spliceDetails</item>
+        <item>Cook Temperature:spliceDetails</item>
+        <item>Cook Time:spliceDetails</item>
+        <item>Cook Pressure:spliceDetails</item>
+        <item>Distance to Water:spliceDetails</item>
+        <item>Estimated Belt Stretch for this Belt and System:spliceDetails</item>
+        <item>Press Used for Splice:spliceDetails</item>
+        <item>Number of Cooks per Splice:spliceDetails</item>
+        <item>Power Sources Available:spliceDetails</item>
+        <item>Is the customer secretly watching you on camera?:spliceDetails</item>
+        <item>Lockout Details like number of locks and location of pannel:spliceDetails</item>
+        <item>What are the answers to the questions on the safe work plan?:spliceDetails</item>
+        <item>The noise level at the splice area.:spliceDetails</item>
+        <item>Distance from splice area to ground:spliceDetails</item>
+        <item>Tools Required:spliceDetails</item>
+        <item>Splice Notes:spliceDetails</item>
+        <item>Lateral Movement Controls:beltProtectionMethods</item>
+        <item>Plugged Chute Shutoffs:beltProtectionMethods</item>
+        <item>Speed Control Devices:beltProtectionMethods</item>
+        <item>Slowdown Protection:beltProtectionMethods</item>
+        <item>Sequecne Protection:beltProtectionMethods</item>
+        <item>Overspeed Controls:beltProtectionMethods</item>
+        <item>Holdback Systems:beltProtectionMethods</item>
+        <item>Product Temperature Protection:beltProtectionMethods</item>
+        <item>Magnetic Protection Conrols:beltProtectionMethods</item>
+        <item>Emergency Stops:beltProtectionMethods</item>
+        <item>Chute Design:materialsAndFlow</item>
+        <item>Loading Angle:materialsAndFlow</item>
+        <item>Impact Slider Bed:materialsAndFlow</item>
+        <item>Length of Skirting Boards:materialsAndFlow</item>
+        <item>Skirtboard Dimentions:materialsAndFlow</item>
+        <item>Description of Other Skirting:materialsAndFlow</item>
+        <item>Fall Height:materialsAndFlow</item>
+        <item>Number of Plows:materialsAndFlow</item>
+        <item>Secondary Scraper Length:materialsAndFlow</item>
+        <item>Primary Scraper Length:materialsAndFlow</item>
+        <item>Number and type of scrapers:materialsAndFlow</item>
+        <item>Logs:logs</item>
+        <item>Install Reports:logs</item>
+        <item>Is there edge wear on the belt?:inspection</item>
+        <item>What is the condition of the splice?:inspection</item>
+        <item>has material spilled off the belt:inspection</item>
+        <item>Is there shiney metal where the belt has rubbed the paint and rust off the frame?:inspection</item>
+        <item>Is there paint rubbed off the structure or idlers? Where and how did it get rubbed off?:inspection</item>
+        <item>Is the lagging worn off? Has the lagging gotten hard and sticky?:inspection</item>
+        <item>Is the belting failing where the idlers force it in to an angle?:inspection</item>
+        <item>Is the belt running fast and partially loaded, or slow and fully loaded:inspection</item>
+        <item>Is there product spillage?:inspection</item>
+        <item>Is there carryback? How bad is it?:inspection</item>
+        <item>have water and abrasive particles been entering cuts and grinding of carcass?:inspection</item>
+        <item>Is the belt crazing observed?:inspection</item>
+        <item>ozone sources: arc welders, electrical generating equipment:inspection</item>
+        <item>is there damage from het:inspection</item>
+        <item>is oil getting on thebelt?:inspection</item>
+        <item>how did the previous belt fail?:inspection</item>
+        <item>how long did the previous belt life?:inspection</item>
+        <item>what was the spec fo the previous belt?:inspection</item>
+        <item>have the operating and environmental conditions changed?:inspection</item>
+        <item>how is the belt tracking?:inspection</item>
+        <item>is there material built up on pulleys?:inspection</item>
+        <item>is the belt currling?:inspection</item>
+        <item>Are there any hot or cold repairs made to the belt?:inspection</item>
+        <item>Is the tail pulley free to spin or is there trapped material around it?:inspection</item>
+        <item>Is there damage to the tail pulley?:inspection</item>
+        <item>What is the condition of the skirting in the loading area? Does it need adjustment or replacement?:inspection</item>
+        <item>Is there damage to the impact bed or impact idlers?:inspection</item>
+        <item>Is the slider bed clean and smooth?:inspection</item>
+        <item>Is there damage to the idlers on the carry side? Is there adequate lubrication? Are the idlers numbered for identification? How many and which ones need to be repaired or replaced? Are the defective ones flagged with a plastic ribbon?:inspection</item>
+        <item>What is the operational status of the carry side trainers? Are they tied off?:inspection</item>
+        <item>What is the condition of the skirting and the impact bed or idlers in the secondary loading locations?:inspection</item>
+        <item>Is there damage to the tipper frame?:inspection</item>
+        <item>Is there buildup around the tipper pulley?:inspection</item>
+        <item>Is the head and/or drive clean, does it have work lagging, is the rubber old, worn, smooth, or hard?:inspection</item>
+        <item>Head Pulley Cleaner and Scraper Adjustment:inspection</item>
+        <item>Head Pulley Snub Condition:inspection</item>
+        <item>Condition of Return Idlers:inspection</item>
+        <item>Condition of the Bend Pulleys:inspection</item>
+        <item>Operational Status of the Takeup Mechanism:inspection</item>
+        <item>Operational or Tied Off Return Self Trainers:inspection</item>
+        <item>Damage to Return Side from Poor Training:inspection</item>
+        <item>OperationalStatus of Plow or Scraper in front of Tail Pulley:inspection</item>
+        <item>PRE TRAINING CHECKLIST::inspection</item>
+        <item>Has all splicing equipment been removed?:inspection</item>
+        <item>Are pulley shafts parallel to each other?:inspection</item>
+        <item>Were belt structure bolts checked for tightness?:inspection</item>
+        <item>Are belt idlers horizontal, in-line and square with conveyor centerline?:inspection</item>
+        <item>Have self-training idlers been installed properly?:inspection</item>
+        <item>Were belt idlers greased properly?:inspection</item>
+        <item>Is the reducer oil at the proper level?:inspection</item>
+        <item>Was the belt chain guard oiled?:inspection</item>
+        <item>Does the motor have proper rotation?:inspection</item>
+        <item>Were all tools, installation gear and foreign objects removed from the area?:inspection</item>
+        <item>Was the belt gravity takeup blocking removed?:inspection</item>
+        <item>Have belt wipers and skirting been properly adjusted?:inspection</item>
+        <item>Are pulleys an didlers free of material buildup?:inspection</item>
+        <item>Is the takeup carriage in good working order?:inspection</item>
+        <item>Will head and tail pulleys be watched for possible runoff?:inspection</item>
+        <item>Are belt emergency stop cords installed?:inspection</item>
+        <item>Name:fieldSurvey</item>
+        <item>Email:fieldSurvey</item>
+        <item>Company:fieldSurvey</item>
+        <item>Date:fieldSurvey</item>
+        <item>Phone:fieldSurvey</item>
+        <item>SITE INFORMATION:fieldSurvey</item>
+        <item>Is the site goverened by MSHA?:fieldSurvey</item>
+        <item>If so, it is consitered underground or surface?:fieldSurvey</item>
+        <item>What is is the shift start time?:fieldSurvey</item>
+        <item>Are there any restrictions on daily hours?:fieldSurvey</item>
+        <item>BELTING INFORMATION:fieldSurvey</item>
+        <item>Belt length:fieldSurvey</item>
+        <item>Belt width:fieldSurvey</item>
+        <item>Belt description (include grade):fieldSurvey</item>
+        <item>Type of service requested:fieldSurvey</item>
+        <item>Preferred mechanical fastener if applicable:fieldSurvey</item>
+        <item>Who will the new belt be strugn by? Designate just one party.:fieldSurvey</item>
+        <item>Who is going to track the new belt once installed? Designate just one party.:fieldSurvey</item>
+        <item>CONVEYOR INFORMATION:fieldSurvey</item>
+        <item>Is the conveyor an incline conveyor or a horizontal conveyor?:fieldSurvey</item>
+        <item>Is it a gravity or screw takeup?:fieldSurvey</item>
+        <item>Is there catwalk on the conveyor?:fieldSurvey</item>
+        <item>Is the footage of the conveyor above ground or below ground?:fieldSurvey</item>
+        <item>Is the conveyor inside or outside?:fieldSurvey</item>
+        <item>Is there equpment on-site to set the belt rool and maneuver necessary equipment?:fieldSurvey</item>
+        <item>Is there a manflit on-site that will be accessable if needed?:fieldSurvey</item>
+        <item>Is the carrying side of the conveyor accessible?:fieldSurvey</item>
+        <item>Is the return side of the conveyor accessible?:fieldSurvey</item>
+        <item>Is the tail pulley of the conveyor accessible?:fieldSurvey</item>
+        <item>Is 3-phase 480v electricty avaliable on site?:fieldSurvey</item>
+        <item>What are the min and max material temps, and ambient temps?:fieldSurvey</item>
     </string-array>
 
     <string-array name="categoriesHuman">
-        <item>materialsCarried:Materials Carried</item>
-        <item>beltProtectionMethods:Belt Protection Methods</item>
-        <item>idlersAndReturns:Idlers and Returns</item>
-        <item>driveSystem:Drive System</item>
-        <item>discharge:Discharge</item>
-        <item>beltParameters:Belt Parameters</item>
-        <item>spliceDetails:Splice Details</item>
-        <item>operatingConditions:Operating Conditions</item>
-        <item>loading:Loading</item>
-        <item>tensioningSystem:Tensioning System</item>
-        <item>logs:Logs</item>
-        <item>conveyorDetails:Conveyor Details</item>
         <item>general:General</item>
-        <item>pulleys:Pulleys</item>
+        <item>fieldSurvey:fieldSurvey</item>
+        <item>spliceDetails:Splice Details</item>
         <item>inspection:Inspection</item>
+        <item>driveSystem:Drive System</item>
+        <item>logs:Logs</item>
+        <item>materialsAndFlow:Materials Carrried</item>
+        <item>tensioningSystem:Tensioning System</item>
+        <item>materialsAndFlow:Materials and Flow</item>
+        <item>beltParameters:Belt Parameters</item>
+        <item>beltProtectionMethods:Belt Protection Methods</item>
+        <item>pulleys:Pulleys</item>
+        <item>fieldSurvey:Field Survey</item>
+        <item>idlersAndReturns:Idlers and Returns</item>
     </string-array>
 
     <string-array name="beltParametersHuman">
-        <item>conveyorName:Conveyor Name</item>
-        <item>conveyorLocation:Conveyor Location</item>
-        <item>customerContact:Customer Contact</item>
-        <item>customerName:Company Name</item>
-        <item>conveyorReferenceCode:Conveyor Reference Code</item>
-        <item>expectedBeltLife:Expected Belt Life</item>
-        <item>projectName:Project Name</item>
-        <item>conveyorType:Conveyor Type</item>
-        <item>totalBeltLength:Total Belt Length</item>
-        <item>beltWidth:Belt Width</item>
-        <item>tensileStrength:Tensile Strenght</item>
-        <item>numberOfPliesCords:Number or Plies/Cords</item>
-        <item>topCoverThickness:Top Cover Thickness</item>
-        <item>bottomCoverThickness:Bottom Cover Thickness</item>
-        <item>coverBeltQuality:Cover/Belt Quality</item>
-        <item>beltThickness:Belt Thickness</item>
-        <item>carcassMaterial:Carcass Material</item>
-        <item>breakerType:Breaker Type</item>
-        <item>rubberType:Rubber Type</item>
-        <item>centerToCenter:Center to Center</item>
-        <item>maxInclinationAngle:Max Inclination Angle</item>
-        <item>beltSpeed:Belt Speed</item>
-        <item>reversible:Conveyor Is Reversible</item>
-        <item>capacity:Capacity</item>
-        <item>conveyorHeightHead:Conveyor Height Head</item>
-        <item>conveyorHeightTail:Conveyor Height Tail</item>
-        <item>verticalCurves:Vertical Curves</item>
-        <item>trainingRollerLocation:Location of Training Roller(s)</item>
-        <item>transitionDistanceTail:Transition Distance at Tail</item>
-        <item>transitionDistanceHead:Transition Distance at Head</item>
-        <item>troughingAngleCarry:Troughing Angle (Carry Side)</item>
-        <item>troughingAngleReturn:Troughing Angle (Return Side)</item>
-        <item>tensioningSystemType:Tensioning System Type</item>
-        <item>idlerSpacingCarry:Idler Spacing (Carry Side)</item>
-        <item>idlerSpacingReturn:Idler Spacing (Return Side)</item>
-        <item>idlerDiameterCarry:Idler Diameter (Carry Side)</item>
-        <item>idlerDiameterReturn:Idler Diameter (Return Side)</item>
-        <item>headPulleyDiameter:Head Pulley Diameter</item>
-        <item>tensionPulleyDiameter:Tension Pulley Diameter</item>
-        <item>tailPulleyDiameter:Tail Pulley Diameter</item>
-        <item>sunbPulleyDiameter:Snub Pulley Diameter</item>
-        <item>tipperPulleyDiameter:Tipper Pulley Diameter</item>
-        <item>pulleyFaceWidth:Pulley Face Width</item>
-        <item>weldedOrBushing:Welded or Busing Pulley</item>
-        <item>flatOrCrownPulley:Flat orCrown Pulley</item>
-        <item>pulleyType:Pulley Type</item>
-        <item>pulleyStyle:Pulley Style</item>
-        <item>busingPartNo:Bushing Part Number</item>
-        <item>laggingStyle:Lagging Style</item>
-        <item>laggingCompund:Lagging Compound</item>
-        <item>laggingThickness:Lagging Thickness</item>
-        <item>hubType:Pulley Hub Type</item>
-        <item>takeUp:Take Up </item>
-        <item>availableTakeUpLength:Available Take Up Length</item>
-        <item>desiredTakeUpBeforeStretch:Desired Take Up Position Before Belt Stretch</item>
-        <item>desiredTakeUpAfterStretch:Desired Take Up Position After Belt Stretch</item>
-        <item>takeUpWeight:Take Up Weight (gravity takeups)</item>
-        <item>takeUpNutSize:Take Up Nut Size (screw takeups)</item>
-        <item>locationTensioningSystem:Location of Tensioning System</item>
-        <item>takeUpIsAdiquate:Take Up is Adiqute</item>
-        <item>installedMotorPowerPerDrivePulley:Installed Motor Power Per Drive Pulley</item>
-        <item>acceleration:Acceleration Time</item>
-        <item>driveType:Drive Type</item>
-        <item>gearbox:Gearbox</item>
-        <item>contactAngleForDrivePulleyOne:Contact Angle for Drive Pulley One</item>
-        <item>contactAngleForDrivePulleyTwo:Contact Angle for Drive Pulley Two</item>
-        <item>numberOfDrivePulleys:Number of Drive Pulleys</item>
-        <item>typeOfPulleyLagging:Type of Pulley Lagging</item>
-        <item>drivePulleyDiameter:Drive Pulley Diameter</item>
-        <item>locationOfDrivePulley:Location of Drive Pulley</item>
-        <item>startUpCondition:Start-up Condition</item>
-        <item>typeOfMaterial:Type of Material</item>
-        <item>materialProperties:Material Properties</item>
-        <item>materialDensity:Material Density</item>
-        <item>lumpSize:Lump Size</item>
-        <item>materialTemperatureAverage:Average Material Temperature</item>
-        <item>materialTemperatureMaximum:Maximum Material Temperature</item>
-        <item>conveyorLocations:Location of </item>
-        <item>ambientTemperatureMax:Max Ambient Temperature</item>
-        <item>ambientTemperatureMin:Minimum Ambient Temperature</item>
-        <item>lastSpliceBy:Last Splice Installed By</item>
-        <item>stepLength:Step Length</item>
-        <item>spliceMaterialManufacturer:Splice Material Manufacturer</item>
-        <item>numberOfSplices:Number of Splices</item>
-        <item>spliceDirection:Splice Direction</item>
-        <item>cookLocation:Cook Location</item>
-        <item>nearestBathroomToSpliceStation:Nearest Bathroom from Splice Location</item>
-        <item>cookTime:Cook Time</item>
-        <item>cookPressure:Cook Pressure</item>
-        <item>distanceToWater:Distance to Water</item>
-        <item>beltStretch:Estimated Belt Stretch for this Belt and System</item>
-        <item>numberOfCooks:Number of Cooks per Splice</item>
-        <item>avaliablePower:Power Sources Available</item>
-        <item>toolsRequired:Tools Required</item>
-        <item>spliceNotes:Splice Notes</item>
-        <item>lateralMovementControls:Lateral Movement Controls</item>
-        <item>pluggedChuteShutoffs:Plugged Chute Shutoffs</item>
-        <item>speedControlDevices:Speed Control Devices</item>
-        <item>slowdownProtection:Slowdown Protection</item>
-        <item>sequenceProtection:Sequecne Protection</item>
-        <item>overspeedControls:Overspeed Controls</item>
-        <item>holdbackSystems:Holdback Systems</item>
-        <item>productTemperatureProtection:Product Temperature Protection</item>
-        <item>magenticProtectionDevice:Magnetic Protection Conrols</item>
-        <item>emergencyStops:Emergency Stops</item>
-        <item>nan:nan</item>
-        <item>nan:nan</item>
-        <item>chuteDesign:chuteDesign</item>
-        <item>loadingAngle:Loading Angle</item>
-        <item>impactSliderBed:Impact Slider Bed</item>
-        <item>lengthOfSkirtingBoards:Length of Skirting Boards</item>
-        <item>skirtboardDimentions:Skirtboard Dimentions</item>
-        <item>otherSkirting:Description of Other Skirting</item>
-        <item>fallHeight:Fall Height</item>
-        <item>numberOfPlows:Number of Plows</item>
-        <item>secondaryScraperLength:Secondary Scraper Length</item>
-        <item>primaryScraperLength:Primary Scraper Length</item>
-        <item>numberAndTypeOfScrapers:Number and type of scrapers</item>
-        <item>logs:Logs</item>
-        <item>installReports:Install Reports</item>
-        <item>materialSpillage:Material Spillage</item>
-        <item>shineyMetal:Shiney Metal</item>
-        <item>rubbedOffPaint:Rubbed Off Paint</item>
-        <item>conditionOfPulleyLagging:Condition of Pulley Lagging</item>
-        <item>idlerJunction:Idler Junction Condition</item>
-        <item>amountLoaded:Full Loading vs. Partial Loading</item>
-        <item>carryback:Carryback</item>
-        <item>mosture:Moisture Damage</item>
-        <item>sunlight:Sunlight Damage</item>
-        <item>ozone:Ozone Damage</item>
-        <item>heat:Heat Damage</item>
-        <item>oil:Oil Damage</item>
-        <item>previousBeltFailure:Previous Belt Failure</item>
-        <item>previousBeltLife:Previous Belt Life</item>
-        <item>previousBeltSpec:Previous Belt Spec</item>
-        <item>operatingAndEnvironmentalChanges:Changes in Operating and Environmental Conditions</item>
-        <item>tracking:Belt Tracking</item>
-        <item>materialOnPulleys:Material on Pullyes</item>
-        <item>beltCurl:Belt Curl</item>
-    </string-array>
-
-
-
-    <string-array name="beltParametersSimple">
-        <item>conveyorName:general</item>
-        <item>conveyorLocation:general</item>
-        <item>customerName:general</item>
-        <item>totalBeltLength:beltParameters</item>
-        <item>beltWidth:beltParameters</item>
-        <item>tensileStrength:beltParameters</item>
-        <item>numberOfPliesCords:beltParameters</item>
-        <item>topCoverThickness:beltParameters</item>
-        <item>bottomCoverThickness:beltParameters</item>
-        <item>coverBeltQuality:beltParameters</item>
-        <item>beltThickness:beltParameters</item>
-        <item>carcassMaterial:beltParameters</item>
-        <item>breakerType:beltParameters</item>
-        <item>rubberType:beltParameters</item>>
-        <item>logs:logs</item>
-        <item>installReports:logs</item>
+        <item>Conveyor Name:Conveyor Name</item>
+        <item>Conveyor Location:Conveyor Location</item>
+        <item>Customer Contact:Customer Contact</item>
+        <item>Company Name:Company Name</item>
+        <item>Conveyor Reference Code:Conveyor Reference Code</item>
+        <item>Expected Belt Life:Expected Belt Life</item>
+        <item>Project Name:Project Name</item>
+        <item>Conveyor Type:Conveyor Type</item>
+        <item>Total Belt Length:Total Belt Length</item>
+        <item>Belt Width:Belt Width</item>
+        <item>Tensile Strenght:Tensile Strenght</item>
+        <item>Number or Plies/Cords:Number or Plies/Cords</item>
+        <item>Top Cover Thickness:Top Cover Thickness</item>
+        <item>Bottom Cover Thickness:Bottom Cover Thickness</item>
+        <item>Cover/Belt Quality:Cover/Belt Quality</item>
+        <item>Belt Thickness:Belt Thickness</item>
+        <item>Carcass Material:Carcass Material</item>
+        <item>Breaker Type:Breaker Type</item>
+        <item>Rubber Type:Rubber Type</item>
+        <item>Center to Center:Center to Center</item>
+        <item>Max Inclination Angle:Max Inclination Angle</item>
+        <item>Belt Speed:Belt Speed</item>
+        <item>Conveyor Is Reversible:Conveyor Is Reversible</item>
+        <item>Capacity:Capacity</item>
+        <item>Conveyor Height Head:Conveyor Height Head</item>
+        <item>Conveyor Height Tail:Conveyor Height Tail</item>
+        <item>Vertical Curves:Vertical Curves</item>
+        <item>Location of Training Roller(s):Location of Training Roller(s)</item>
+        <item>Transition Distance at Tail:Transition Distance at Tail</item>
+        <item>Transition Distance at Head:Transition Distance at Head</item>
+        <item>Troughing Angle (Carry Side):Troughing Angle (Carry Side)</item>
+        <item>Troughing Angle (Return Side):Troughing Angle (Return Side)</item>
+        <item>Tensioning System Type:Tensioning System Type</item>
+        <item>Idler Spacing (Carry Side):Idler Spacing (Carry Side)</item>
+        <item>Idler Spacing (Return Side):Idler Spacing (Return Side)</item>
+        <item>Idler Diameter (Carry Side):Idler Diameter (Carry Side)</item>
+        <item>Idler Diameter (Return Side):Idler Diameter (Return Side)</item>
+        <item>Head Pulley Diameter:Head Pulley Diameter</item>
+        <item>Tension Pulley Diameter:Tension Pulley Diameter</item>
+        <item>Tail Pulley Diameter:Tail Pulley Diameter</item>
+        <item>Snub Pulley Diameter:Snub Pulley Diameter</item>
+        <item>Tipper Pulley Diameter:Tipper Pulley Diameter</item>
+        <item>Pulley Face Width:Pulley Face Width</item>
+        <item>Welded or Busing Pulley:Welded or Busing Pulley</item>
+        <item>Flat orCrown Pulley:Flat orCrown Pulley</item>
+        <item>Pulley Type:Pulley Type</item>
+        <item>Pulley Style:Pulley Style</item>
+        <item>Bushing Part Number:Bushing Part Number</item>
+        <item>Lagging Style:Lagging Style</item>
+        <item>Lagging Compound:Lagging Compound</item>
+        <item>Lagging Thickness:Lagging Thickness</item>
+        <item>Pulley Hub Type:Pulley Hub Type</item>
+        <item>PPI ORDER FORM::PPI ORDER FORM:</item>
+        <item>Belt...fabric or steel:Belt...fabric or steel</item>
+        <item>Takeup...gravity, gravity wire rope, hydraulic, screw:Takeup...gravity, gravity wire rope, hydraulic, screw</item>
+        <item>Drive...motor HP, speed in FPM, capacity in TPH:Drive...motor HP, speed in FPM, capacity in TPH</item>
+        <item>Layout...lenght in feet, lift in feet, material conveyed:Layout...lenght in feet, lift in feet, material conveyed</item>
+        <item>Service life...shifts per day, moths per year, pully life in years:Service life...shifts per day, moths per year, pully life in years</item>
+        <item>Quote...bearings type, B10 Life in hours, TU frame, idlers, impact system, ezslider, smart roll:Quote...bearings type, B10 Life in hours, TU frame, idlers, impact system, ezslider, smart roll</item>
+        <item>Parameters for quoting a pulley...convyeor id, pulley location, quantity, pulley type, OD without laggling, face width, crown or flat face, lagging thickness, lagging groove, lagging specs, shaft diameter at hub, shaft diameter @ HUB, shaft diameter @ BRG, shaft diameter @ DRIVE, # KW, shaft length, bearning center (BC), wrap (arc of contact), T1, T2:Parameters for quoting a pulley...convyeor id, pulley location, quantity, pulley type, OD without laggling, face width, crown or flat face, lagging thickness, lagging groove, lagging specs, shaft diameter at hub, shaft diameter @ HUB, shaft diameter @ BRG, shaft diameter @ DRIVE, # KW, shaft length, bearning center (BC), wrap (arc of contact), T1, T2</item>
+        <item>Take Up Mechanism Type:Take Up Mechanism Type</item>
+        <item>Total Takeup Length:Total Takeup Length</item>
+        <item>Available Take Up Length:Available Take Up Length</item>
+        <item>Desired Take Up Position Before Belt Stretch:Desired Take Up Position Before Belt Stretch</item>
+        <item>Desired Take Up Position After Belt Stretch:Desired Take Up Position After Belt Stretch</item>
+        <item>Take Up Weight (gravity takeups):Take Up Weight (gravity takeups)</item>
+        <item>Take Up Nut Size (screw takeups):Take Up Nut Size (screw takeups)</item>
+        <item>Location of Tensioning System:Location of Tensioning System</item>
+        <item>Expected Initial Belt Stretch:Expected Initial Belt Stretch</item>
+        <item>Expected Total Stretch:Expected Total Stretch</item>
+        <item>Take Up is Adiqute:Take Up is Adiqute</item>
+        <item>Installed Motor Power Per Drive Pulley:Installed Motor Power Per Drive Pulley</item>
+        <item>Acceleration Time:Acceleration Time</item>
+        <item>Drive Type:Drive Type</item>
+        <item>Gearbox:Gearbox</item>
+        <item>Contact Angle for Drive Pulley One:Contact Angle for Drive Pulley One</item>
+        <item>Contact Angle for Drive Pulley Two:Contact Angle for Drive Pulley Two</item>
+        <item>Number of Drive Pulleys:Number of Drive Pulleys</item>
+        <item>Type of Pulley Lagging:Type of Pulley Lagging</item>
+        <item>Drive Pulley Diameter:Drive Pulley Diameter</item>
+        <item>Location of Drive Pulley:Location of Drive Pulley</item>
+        <item>Start-up Condition:Start-up Condition</item>
+        <item>Type of Material:Type of Material</item>
+        <item>Material Properties:Material Properties</item>
+        <item>Material Density:Material Density</item>
+        <item>Lump Size:Lump Size</item>
+        <item>Average Material Temperature:Average Material Temperature</item>
+        <item>Maximum Material Temperature:Maximum Material Temperature</item>
+        <item>Nearest Muster Station from Splice Location:Nearest Muster Station from Splice Location</item>
+        <item>Last Splice Installed By:Last Splice Installed By</item>
+        <item>Step Length:Step Length</item>
+        <item>Splice Material Manufacturer:Splice Material Manufacturer</item>
+        <item>Number of Splices:Number of Splices</item>
+        <item>Splice Direction:Splice Direction</item>
+        <item>Cook Location:Cook Location</item>
+        <item>Nearest Bathroom from Splice Location:Nearest Bathroom from Splice Location</item>
+        <item>Cook Temperature:Cook Temperature</item>
+        <item>Cook Time:Cook Time</item>
+        <item>Cook Pressure:Cook Pressure</item>
+        <item>Distance to Water:Distance to Water</item>
+        <item>Estimated Belt Stretch for this Belt and System:Estimated Belt Stretch for this Belt and System</item>
+        <item>Press Used for Splice:Press Used for Splice</item>
+        <item>Number of Cooks per Splice:Number of Cooks per Splice</item>
+        <item>Power Sources Available:Power Sources Available</item>
+        <item>Is the customer secretly watching you on camera?:Is the customer secretly watching you on camera?</item>
+        <item>Lockout Details like number of locks and location of pannel:Lockout Details like number of locks and location of pannel</item>
+        <item>What are the answers to the questions on the safe work plan?:What are the answers to the questions on the safe work plan?</item>
+        <item>The noise level at the splice area.:The noise level at the splice area.</item>
+        <item>Distance from splice area to ground:Distance from splice area to ground</item>
+        <item>Tools Required:Tools Required</item>
+        <item>Splice Notes:Splice Notes</item>
+        <item>Lateral Movement Controls:Lateral Movement Controls</item>
+        <item>Plugged Chute Shutoffs:Plugged Chute Shutoffs</item>
+        <item>Speed Control Devices:Speed Control Devices</item>
+        <item>Slowdown Protection:Slowdown Protection</item>
+        <item>Sequecne Protection:Sequecne Protection</item>
+        <item>Overspeed Controls:Overspeed Controls</item>
+        <item>Holdback Systems:Holdback Systems</item>
+        <item>Product Temperature Protection:Product Temperature Protection</item>
+        <item>Magnetic Protection Conrols:Magnetic Protection Conrols</item>
+        <item>Emergency Stops:Emergency Stops</item>
+        <item>Chute Design:Chute Design</item>
+        <item>Loading Angle:Loading Angle</item>
+        <item>Impact Slider Bed:Impact Slider Bed</item>
+        <item>Length of Skirting Boards:Length of Skirting Boards</item>
+        <item>Skirtboard Dimentions:Skirtboard Dimentions</item>
+        <item>Description of Other Skirting:Description of Other Skirting</item>
+        <item>Fall Height:Fall Height</item>
+        <item>Number of Plows:Number of Plows</item>
+        <item>Secondary Scraper Length:Secondary Scraper Length</item>
+        <item>Primary Scraper Length:Primary Scraper Length</item>
+        <item>Number and type of scrapers:Number and type of scrapers</item>
+        <item>Logs:Logs</item>
+        <item>Install Reports:Install Reports</item>
+        <item>Is there edge wear on the belt?:Is there edge wear on the belt?</item>
+        <item>What is the condition of the splice?:What is the condition of the splice?</item>
+        <item>has material spilled off the belt:has material spilled off the belt</item>
+        <item>Is there shiney metal where the belt has rubbed the paint and rust off the frame?:Is there shiney metal where the belt has rubbed the paint and rust off the frame?</item>
+        <item>Is there paint rubbed off the structure or idlers? Where and how did it get rubbed off?:Is there paint rubbed off the structure or idlers? Where and how did it get rubbed off?</item>
+        <item>Is the lagging worn off? Has the lagging gotten hard and sticky?:Is the lagging worn off? Has the lagging gotten hard and sticky?</item>
+        <item>Is the belting failing where the idlers force it in to an angle?:Is the belting failing where the idlers force it in to an angle?</item>
+        <item>Is the belt running fast and partially loaded, or slow and fully loaded:Is the belt running fast and partially loaded, or slow and fully loaded</item>
+        <item>Is there product spillage?:Is there product spillage?</item>
+        <item>Is there carryback? How bad is it?:Is there carryback? How bad is it?</item>
+        <item>have water and abrasive particles been entering cuts and grinding of carcass?:have water and abrasive particles been entering cuts and grinding of carcass?</item>
+        <item>Is the belt crazing observed?:is the belt crazing observed?</item>
+        <item>ozone sources: arc welders, electrical generating equipment:ozone sources: arc welders, electrical generating equipment</item>
+        <item>is there damage from het:is there damage from het</item>
+        <item>is oil getting on thebelt?:is oil getting on thebelt?</item>
+        <item>how did the previous belt fail?:how did the previous belt fail?</item>
+        <item>how long did the previous belt life?:how long did the previous belt life?</item>
+        <item>what was the spec fo the previous belt?:what was the spec fo the previous belt?</item>
+        <item>have the operating and environmental conditions changed?:have the operating and environmental conditions changed?</item>
+        <item>how is the belt tracking?:how is the belt tracking?</item>
+        <item>is there material built up on pulleys?:is there material built up on pulleys?</item>
+        <item>is the belt currling?:is the belt currling?</item>
+        <item>Are there any hot or cold repairs made to the belt?:Are there any hot or cold repairs made to the belt?</item>
+        <item>Is the tail pulley free to spin or is there trapped material around it?:Is the tail pulley free to spin or is there trapped material around it?</item>
+        <item>Is there damage to the tail pulley?:Is there damage to the tail pulley?</item>
+        <item>What is the condition of the skirting in the loading area? Does it need adjustment or replacement?:What is the condition of the skirting in the loading area? Does it need adjustment or replacement?</item>
+        <item>Is there damage to the impact bed or impact idlers?:Is there damage to the impact bed or impact idlers?</item>
+        <item>Is the slider bed clean and smooth?:Is the slider bed clean and smooth?</item>
+        <item>Is there damage to the idlers on the carry side? Is there adequate lubrication? Are the idlers numbered for identification? How many and which ones need to be repaired or replaced? Are the defective ones flagged with a plastic ribbon?:Is there damage to the idlers on the carry side? Is there adequate lubrication? Are the idlers numbered for identification? How many and which ones need to be repaired or replaced? Are the defective ones flagged with a plastic ribbon?</item>
+        <item>What is the operational status of the carry side trainers? Are they tied off?:What is the operational status of the carry side trainers? Are they tied off?</item>
+        <item>What is the condition of the skirting and the impact bed or idlers in the secondary loading locations?:What is the condition of the skirting and the impact bed or idlers in the secondary loading locations?</item>
+        <item>Is there damage to the tipper frame?:Is there damage to the tipper frame?</item>
+        <item>Is there buildup around the tipper pulley?:Is there buildup around the tipper pulley?</item>
+        <item>Is the head and/or drive clean, does it have work lagging, is the rubber old, worn, smooth, or hard?:Is the head and/or drive clean, does it have work lagging, is the rubber old, worn, smooth, or hard?</item>
+        <item>Head Pulley Cleaner and Scraper Adjustment:Head Pulley Cleaner and Scraper Adjustment</item>
+        <item>Head Pulley Snub Condition:Head Pulley Snub Condition</item>
+        <item>Condition of Return Idlers:Condition of Return Idlers</item>
+        <item>Condition of the Bend Pulleys:Condition of the Bend Pulleys</item>
+        <item>Operational Status of the Takeup Mechanism:Operational Status of the Takeup Mechanism</item>
+        <item>Operational or Tied Off Return Self Trainers:Operational or Tied Off Return Self Trainers</item>
+        <item>Damage to Return Side from Poor Training:Damage to Return Side from Poor Training</item>
+        <item>OperationalStatus of Plow or Scraper in front of Tail Pulley:OperationalStatus of Plow or Scraper in front of Tail Pulley</item>
+        <item>PRE TRAINING CHECKLIST::PRE TRAINING CHECKLIST:</item>
+        <item>Has all splicing equipment been removed?:Has all splicing equipment been removed?</item>
+        <item>Are pulley shafts parallel to each other?:Are pulley shafts parallel to each other?</item>
+        <item>Were belt structure bolts checked for tightness?:Were belt structure bolts checked for tightness?</item>
+        <item>Are belt idlers horizontal, in-line and square with conveyor centerline?:Are belt idlers horizontal, in-line and square with conveyor centerline?</item>
+        <item>Have self-training idlers been installed properly?:Have self-training idlers been installed properly?</item>
+        <item>Were belt idlers greased properly?:Were belt idlers greased properly?</item>
+        <item>Is the reducer oil at the proper level?:Is the reducer oil at the proper level?</item>
+        <item>Was the belt chain guard oiled?:Was the belt chain guard oiled?</item>
+        <item>Does the motor have proper rotation?:Does the motor have proper rotation?</item>
+        <item>Were all tools, installation gear and foreign objects removed from the area?:Were all tools, installation gear and foreign objects removed from the area?</item>
+        <item>Was the belt gravity takeup blocking removed?:Was the belt gravity takeup blocking removed?</item>
+        <item>Have belt wipers and skirting been properly adjusted?:Have belt wipers and skirting been properly adjusted?</item>
+        <item>Are pulleys an didlers free of material buildup?:Are pulleys an didlers free of material buildup?</item>
+        <item>Is the takeup carriage in good working order?:Is the takeup carriage in good working order?</item>
+        <item>Will head and tail pulleys be watched for possible runoff?:Will head and tail pulleys be watched for possible runoff?</item>
+        <item>Are belt emergency stop cords installed?:Are belt emergency stop cords installed?</item>
+        <item>Name:Name</item>
+        <item>Email:Email</item>
+        <item>Company:Company</item>
+        <item>Date:Date</item>
+        <item>Phone:Phone</item>
+        <item>SITE INFORMATION:SITE INFORMATION</item>
+        <item>Is the site goverened by MSHA?:Is the site goverened by MSHA?</item>
+        <item>If so, it is consitered underground or surface?:If so, it is consitered underground or surface?</item>
+        <item>What is is the shift start time?:What is is the shift start time?</item>
+        <item>Are there any restrictions on daily hours?:Are there any restrictions on daily hours?</item>
+        <item>BELTING INFORMATION:BELTING INFORMATION</item>
+        <item>Belt length:Belt length</item>
+        <item>Belt width:Belt width</item>
+        <item>Belt description (include grade):Belt description (include grade)</item>
+        <item>Type of service requested:Type of service requested</item>
+        <item>Preferred mechanical fastener if applicable:Preferred mechanical fastener if applicable</item>
+        <item>Who will the new belt be strugn by? Designate just one party.:Who will the new belt be strugn by? Designate just one party.</item>
+        <item>Who is going to track the new belt once installed? Designate just one party.:Who is going to track the new belt once installed? Designate just one party.</item>
+        <item>CONVEYOR INFORMATION:CONVEYOR INFORMATION</item>
+        <item>Is the conveyor an incline conveyor or a horizontal conveyor?:Is the conveyor an incline conveyor or a horizontal conveyor?</item>
+        <item>Is it a gravity or screw takeup?:Is it a gravity or screw takeup?</item>
+        <item>Is there catwalk on the conveyor?:Is there catwalk on the conveyor?</item>
+        <item>Is the footage of the conveyor above ground or below ground?:Is the footage of the conveyor above ground or below ground?</item>
+        <item>Is the conveyor inside or outside?:Is the conveyor inside or outside?</item>
+        <item>Is there equpment on-site to set the belt rool and maneuver necessary equipment?:Is there equpment on-site to set the belt rool and maneuver necessary equipment?</item>
+        <item>Is there a manflit on-site that will be accessable if needed?:Is there a manflit on-site that will be accessable if needed?</item>
+        <item>Is the carrying side of the conveyor accessible?:Is the carrying side of the conveyor accessible?</item>
+        <item>Is the return side of the conveyor accessible?:Is the return side of the conveyor accessible?</item>
+        <item>Is the tail pulley of the conveyor accessible?:Is the tail pulley of the conveyor accessible?</item>
+        <item>Is 3-phase 480v electricty avaliable on site?:Is 3-phase 480v electricty avaliable on site?</item>
+        <item>What are the min and max material temps, and ambient temps?:What are the min and max material temps, and ambient temps?</item>
     </string-array>
 </resources>

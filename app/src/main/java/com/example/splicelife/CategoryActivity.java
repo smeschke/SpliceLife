@@ -118,7 +118,6 @@ public class CategoryActivity extends AppCompatActivity {
 
         return map;
     }
-
     private void displayBeltCategories() {
         if (belt != null) {
             Map<String, String> details = belt.getDetails();
@@ -128,17 +127,24 @@ public class CategoryActivity extends AppCompatActivity {
             for (Map.Entry<String, String> entry : details.entrySet()) {
                 String category = getCategory(entry.getKey());
 
+                // Skip the logs category
+                if ("logs".equals(category)) {
+                    continue;
+                }
+
                 String humanReadableName = keyHumanNameMap.get(entry.getKey());
                 String displayText = humanReadableName != null
                         ? humanReadableName + ": \n" + entry.getValue()
                         : entry.getKey() + ": " + entry.getValue();
                 categoryDetails.putIfAbsent(category, new ArrayList<>());
-                categoryDetails.get(category).add(displayText+"\n");
+                categoryDetails.get(category).add(displayText + "\n");
             }
 
             // Ensure all categories are present in the map, even if they are empty
             for (String category : keyCategoryMap.values()) {
-                categoryDetails.putIfAbsent(category, new ArrayList<>());
+                if (!"logs".equals(category)) { // Skip adding logs category
+                    categoryDetails.putIfAbsent(category, new ArrayList<>());
+                }
             }
 
             // Add placeholder for empty categories
@@ -161,8 +167,11 @@ public class CategoryActivity extends AppCompatActivity {
             if (categoryDetails.containsKey("spliceDetails")) {
                 categories.add("spliceDetails");
             }
-            if (categoryDetails.containsKey("logs")) {
-                categories.add("logs");
+            if (categoryDetails.containsKey("tensioningSystem")) {
+                categories.add("tensioningSystem");
+            }
+            if (categoryDetails.containsKey("pulleys")) {
+                categories.add("pulleys");
             }
 
             // Add remaining categories
@@ -176,7 +185,6 @@ public class CategoryActivity extends AppCompatActivity {
             categoryRecyclerView.setAdapter(categoryAdapter);
         }
     }
-
 
     private String getCategory(String key) {
         return keyCategoryMap.getOrDefault(key, "User Defined");

@@ -81,7 +81,7 @@ public class EditDetailActivity extends AppCompatActivity {
         List<String> detailsList = new ArrayList<>();
         for (String key : beltParameters) {
             String value = beltDetails.get(key);
-            detailsList.add(key + ": " + (value != null ? value : ""));
+            detailsList.add(key + ":\n" + (value != null ? value : ""));
         }
         return detailsList;
     }

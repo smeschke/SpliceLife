@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     // Add a new belt to the database
     private void addNewBelt(String beltName) {
         Map<String, String> details = new HashMap<>();
-        details.put("conveyorName", beltName);
+        details.put("Conveyor Name", beltName);
         Belt newBelt = new Belt(details);
         Executors.newSingleThreadExecutor().execute(() -> beltViewModel.insert(newBelt));  // Insert new belt into the database on a background thread
     }

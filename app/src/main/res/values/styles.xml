@@ -16,4 +16,34 @@
         <!-- Input Background Color -->
         <item name="android:editTextBackground">@drawable/input_background</item>
     </style>
+
+    <!-- Default Text Style -->
+    <style name="DefaultText" parent="android:Widget.TextView">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Title Text Style -->
+    <style name="TitleText" parent="android:Widget.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Body Text Style -->
+    <style name="BodyText" parent="android:Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- List Item Text Style -->
+    <style name="ListItemText" parent="android:Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Modal Text Style -->
+    <style name="ModalText" parent="android:Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

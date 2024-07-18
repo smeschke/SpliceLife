@@ -35,7 +35,7 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
     @Override
     public void onBindViewHolder(@NonNull BeltViewHolder holder, int position) {
         Belt belt = beltList.get(position);
-        final String[] keys = {"conveyorName", "customerName", "conveyorLocation", "beltWidth", "totalBeltLength", "tensileStrength", "numberOfPliesCords", "topCoverThickness", "bottomCoverThickness", "rubberType"};
+        final String[] keys = {"Conveyor Name", "Company Name", "Conveyor Location", "Belt Width", "Total Belt Length", "Tensile Strenght", "Number or Plies/Cords", "Top Cover Thickness", "Bottom Cover Thickness", "Rubber Type"};
 
         SpannableStringBuilder callout = new SpannableStringBuilder();
 
@@ -61,15 +61,15 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
         holder.itemView.setOnClickListener(v -> onItemClickListener.onItemClick(belt));
 
         // Fetch and set log details
-        String logDetails = belt.getDetails().get("logs");
+        String logDetails = belt.getDetails().get("Logs");
         if (logDetails == null || logDetails.isEmpty()) {
-            logDetails = "\n\ninitial commit\n\n";
+            logDetails = "\n\ninitial commit\nmaintenance log\n";
         }
         String[] logLines = logDetails.split("\n");
-        StringBuilder truncatedLog = new StringBuilder("MAINTENANCE LOG:\n\n");
+        StringBuilder truncatedLog = new StringBuilder("");
 
-        if (logLines.length > 10) {
-            for (int i = 0; i < 10; i++) {
+        if (logLines.length > 3) {
+            for (int i = 0; i < 3; i++) {
                 truncatedLog.append(logLines[i]).append("\n");
             }
             truncatedLog.append(".....");

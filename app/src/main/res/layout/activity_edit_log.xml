@@ -14,23 +14,20 @@
         android:layout_centerHorizontal="true"
         android:text="Belt Name: 32123\nCompany: null\nLocation: null"/>
 
-    <TextView
-        android:id="@+id/logsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/headerTextView"
-        android:layout_marginTop="16dp"
-        android:textSize="14sp"/>
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logsTextView"
-        android:layout_above="@+id/bottomLayout"
+        android:layout_height="0dp"
+        android:layout_below="@id/headerTextView"
+        android:layout_above="@id/bottomLayout"
         android:layout_marginTop="16dp">
 
-        <!-- Add any other views that need to scroll here -->
-
+        <TextView
+            android:id="@+id/logsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:background="@android:color/white"/>
     </ScrollView>
 
     <LinearLayout

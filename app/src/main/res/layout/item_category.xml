@@ -15,14 +15,18 @@
             android:id="@+id/categoryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            style="@style/TitleText"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/categoryDetails"
             android:layout_width="match_parent"
+
+            style="@style/BodyText"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+
             android:paddingTop="8dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

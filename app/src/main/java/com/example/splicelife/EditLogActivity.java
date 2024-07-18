@@ -20,7 +20,6 @@ public class EditLogActivity extends AppCompatActivity {
     private Belt belt;
     private BeltDao beltDao;
 
-
     private Button copyLastTwoLogsButton;
     private Button copyAllLogsButton;
     private TextView headerTextView;
@@ -44,14 +43,13 @@ public class EditLogActivity extends AppCompatActivity {
         headerTextView = findViewById(R.id.headerTextView);
 
         // Set header text
-        String header = "Belt Name: " + belt.getDetails().get("conveyorName") + "\n" +
-                "Company: " + belt.getDetails().get("customerName") + "\n" +
-                "Location: " + belt.getDetails().get("conveyorLocation");
+        String header = "Belt Name: " + belt.getDetails().get("Conveyor Name") + "\n" +
+                "Company: " + belt.getDetails().get("Company Name") + "\n" +
+                "Location: " + belt.getDetails().get("Conveyor Location");
         headerTextView.setText(header);
 
-
         // Get the logs data from the belt object
-        String logs = belt.getDetails().get("logs");
+        String logs = belt.getDetails().get("Logs");
         if (logs != null) {
             logsTextView.setText(logs);
         }
@@ -71,7 +69,7 @@ public class EditLogActivity extends AppCompatActivity {
             logsTextView.setText(updatedLogs);
 
             // Update the belt object with the new logs
-            belt.getDetails().put("logs", updatedLogs);
+            belt.getDetails().put("Logs", updatedLogs);
             beltDao.update(belt);
 
             // Clear the input field
@@ -81,14 +79,13 @@ public class EditLogActivity extends AppCompatActivity {
             Intent resultIntent = new Intent();
             resultIntent.putExtra("belt_id", belt.getId());
             setResult(RESULT_OK, resultIntent);
-
         }
     }
 
     private String getHeader() {
-        return "Belt Name: " + belt.getDetails().get("conveyorName") + "\n" +
-                "Company: " + belt.getDetails().get("companyName") + "\n" +
-                "Location: " + belt.getDetails().get("conveyorLocation") + "\n\n";
+        return "Belt Name: " + belt.getDetails().get("Conveyor Name") + "\n" +
+                "Company: " + belt.getDetails().get("Company Name") + "\n" +
+                "Location: " + belt.getDetails().get("Conveyor Location") + "\n\n";
     }
 
     private void copyLastTwoLogs() {
