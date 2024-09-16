@@ -1,6 +1,7 @@
 package com.example.splicelife;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,14 +14,22 @@ public class KeyCategoryMapping {
     }
 
     private void loadKeyCategoryMapping(Context context) {
-        String[] keyCategoryArray = context.getResources().getStringArray(R.array.beltParameters);
-        for (String keyCategory : keyCategoryArray) {
-            String[] parts = keyCategory.split(":");
-            if (parts.length == 2) {
-                String key = parts[0].trim();
-                String category = parts[1].trim();
-                keyCategoryMap.put(key, category);
+        Resources res = context.getResources();
+        String[] categoryArray = res.getStringArray(R.array.categories);
+
+        // Iterate through the categories and map each key to its category
+        for (String category : categoryArray) {
+            int arrayId = res.getIdentifier(category, "array", context.getPackageName());
+            if (arrayId != 0) {
+                mapKeysToCategory(res, arrayId, category);
             }
+        }
+    }
+
+    private void mapKeysToCategory(Resources res, int arrayId, String category) {
+        String[] keys = res.getStringArray(arrayId);
+        for (String key : keys) {
+            keyCategoryMap.put(key, category);
         }
     }
 

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -65,31 +66,36 @@ public class EditDetailActivity extends AppCompatActivity {
 
     private List<String> loadBeltParameters() {
         Resources res = getResources();
-        String[] beltParametersArray = res.getStringArray(R.array.beltParameters);
+        int arrayId = res.getIdentifier(category.toLowerCase(), "array", getPackageName());
         List<String> beltParametersList = new ArrayList<>();
-        for (String parameter : beltParametersArray) {
-            String[] parts = parameter.split(":");
-            if (parts.length == 2 && parts[1].equalsIgnoreCase(category)) {
-                beltParametersList.add(parts[0]);
+
+        if (arrayId != 0) {
+            String[] beltParametersArray = res.getStringArray(arrayId);
+            for (String parameter : beltParametersArray) {
+                beltParametersList.add(parameter);
             }
         }
+
         return beltParametersList;
     }
 
     private List<String> generateDetailsList(List<String> beltParameters, Belt belt, String category) {
         Map<String, String> beltDetails = belt.getDetails();
         List<String> detailsList = new ArrayList<>();
-        for (String key : beltParameters) {
-            String value = beltDetails.get(key);
-            detailsList.add(key + ":\n" + (value != null ? value : ""));
+
+        // Load details in order defined by strings.xml
+        for (String parameter : beltParameters) {
+            String value = beltDetails.get(parameter);
+            detailsList.add(parameter + "\n" + (value != null ? value : ""));
         }
         return detailsList;
     }
 
+
     private void showEditDialog(String detail) {
-        String[] parts = detail.split(":");
-        String key = parts[0].trim();
-        String currentValue = parts.length > 1 ? parts[1].trim() : "";
+        int indexOfNewline = detail.indexOf('\n');
+        String key = indexOfNewline != -1 ? detail.substring(0, indexOfNewline).trim() : detail.trim();
+        String currentValue = indexOfNewline != -1 ? detail.substring(indexOfNewline + 1).trim() : "";
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Edit Value for " + key);
@@ -98,7 +104,7 @@ public class EditDetailActivity extends AppCompatActivity {
         builder.setView(dialogView);
 
         EditText editText = dialogView.findViewById(R.id.editTextDetail);
-        editText.setText(currentValue);
+        editText.setText(currentValue); // Set current value in the EditText
 
         builder.setPositiveButton("Save", (dialog, which) -> {
             String newValue = editText.getText().toString();
@@ -109,26 +115,26 @@ public class EditDetailActivity extends AppCompatActivity {
         builder.create().show();
     }
 
+
     private void saveDetail(String key, String newValue) {
         // Update the belt object with the new value
         Map<String, String> beltDetails = belt.getDetails();
-        beltDetails.put(key, newValue);
+        beltDetails.put(key, newValue); // Update the detail
         belt.setDetails(beltDetails);
         beltDao.update(belt); // Save the updated belt back to the database
 
         // Update the displayed details list and notify the adapter
         for (int i = 0; i < details.size(); i++) {
-            if (details.get(i).startsWith(key + ":")) {
-                details.set(i, key + ": " + newValue);
+            if (details.get(i).startsWith(key + "\n")) { // Correct separator
+                details.set(i, key + "\n" + newValue); // Update the detail in the list
                 break;
             }
         }
-        detailAdapter.notifyDataSetChanged();
+        detailAdapter.notifyDataSetChanged(); // Refresh the RecyclerView
 
         // Set result to indicate data has changed
         Intent resultIntent = new Intent();
         resultIntent.putExtra("updatedBeltId", belt.getId());
         setResult(RESULT_OK, resultIntent);
-        //finish();  // Close the activity
     }
 }

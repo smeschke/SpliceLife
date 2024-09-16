@@ -35,7 +35,7 @@ public class BeltAdapter extends RecyclerView.Adapter<BeltAdapter.BeltViewHolder
     @Override
     public void onBindViewHolder(@NonNull BeltViewHolder holder, int position) {
         Belt belt = beltList.get(position);
-        final String[] keys = {"Conveyor Name", "Company Name", "Conveyor Location", "Belt Width", "Total Belt Length", "Tensile Strenght", "Number or Plies/Cords", "Top Cover Thickness", "Bottom Cover Thickness", "Rubber Type"};
+        final String[] keys = {"Conveyor Name", "Company Name", "Conveyor Location", "Belt Width", "Net Endless Length", "Tensile Strength", "Number or Plies/Cords", "Top Cover Thickness", "Bottom Cover Thickness", "Rubber Type"};
 
         SpannableStringBuilder callout = new SpannableStringBuilder();
 
